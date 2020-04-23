@@ -1,2 +1,2 @@
 # Orbit
-Game manager for Fluenza Network
+Game manager in development for fun by Daniel & Sam
