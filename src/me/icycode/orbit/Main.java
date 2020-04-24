@@ -39,12 +39,14 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.connorlinfoot.titleapi.TitleAPI;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
+import com.sk89q.worldedit.bukkit.WorldEditPlugin;
 
 public class Main extends JavaPlugin {
 
@@ -58,7 +60,7 @@ public class Main extends JavaPlugin {
 	
 	public static HashMap<Player, GamePlayer> onlinePlayers = new HashMap<Player, GamePlayer>();
 	
-	MySQL MySQL = new MySQL("198.20.103.122", "3306", "database", "user", "pass");
+	MySQL MySQL = new MySQL("198.20.114.182", "3306", "mc132549", "mc132549", "pass");
 	Connection c = null;
 	
 	@Override
@@ -196,6 +198,14 @@ public class Main extends JavaPlugin {
 		      RotationManager.rotation.add(s);
 		    } break;
 		}
+	}
+	
+	public WorldEditPlugin getWorldEdit() {
+		Plugin p = Bukkit.getServer().getPluginManager().getPlugin("World Edit");
+		
+		if (p instanceof WorldEditPlugin) {
+			return (WorldEditPlugin) p;
+		} else return null;
 	}
 	
 	
