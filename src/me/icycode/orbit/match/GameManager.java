@@ -51,7 +51,7 @@ public class GameManager {
 		
 		SoundUtils.broadcastSound(Sound.WITHER_DEATH);
 		
-		RotationManager.setNextMap();
+
 		
 		if (Main.playersOnline >= 2) {
 			GameState.setStarting();
@@ -59,6 +59,8 @@ public class GameManager {
 			TeamManager.assignAllPlayersTeam(MapInfo.teams);
 			GameState.setStarting();
 		}
+		
+		RotationManager.setNextMap();
 	}
 	
 	public static void teleportSpawn(Player player) {

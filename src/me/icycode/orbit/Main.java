@@ -1,5 +1,7 @@
 package me.icycode.orbit;
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.util.HashMap;
 import java.util.List;
@@ -29,6 +31,7 @@ import me.icycode.orbit.utils.SoundUtils;
 import me.icycode.orbit.utils.chat.Announcement;
 import me.icycode.orbit.utils.chat.Chatter;
 
+import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -94,13 +97,7 @@ public class Main extends JavaPlugin {
 		gameCountdown = -1;
 		gameTime = -1;
 		
-		Bukkit.getServer().createWorld(new WorldCreator("8 Bit"));
-		Bukkit.getServer().createWorld(new WorldCreator("Melted Canada CTF"));
-		Bukkit.getServer().createWorld(new WorldCreator("Melted Canada TDM"));
-		Bukkit.getServer().createWorld(new WorldCreator("IslandHopper"));
-		Bukkit.getServer().createWorld(new WorldCreator("Oasis"));
-		Bukkit.getServer().createWorld(new WorldCreator("Triax"));
-		Bukkit.getServer().createWorld(new WorldCreator("Tumbleweed"));
+		Bukkit.getServer().createWorld(new WorldCreator("MatchMap"));
 		
 		MapInfo.resetInfo();
 		
@@ -116,9 +113,8 @@ public class Main extends JavaPlugin {
 		
 		//RotationManager.rotation = (ArrayList<String>) getConfig().getStringList("rotation");
 		
-		
-		
-		RotationManager.addMap("Triax");
+		RotationManager.addMap("Tumbleweed");
+		RotationManager.addMap("Tumbleweed");
 		RotationManager.addMap("Island Hopper");
 		RotationManager.addMap("Tumbleweed");
 		RotationManager.addMap("Oasis");
@@ -208,10 +204,38 @@ public class Main extends JavaPlugin {
 		} else return null;
 	}
 	
+	public static void copy() {
+        //File dataFolder = new File(Bukkit.getWorldContainer().getPath());
+        //player.sendMessage(dataFolder.toString());
+        File srcDir = new File(Bukkit.getWorldContainer() + "/Maps/" +  MapInfo.worldName);
+        if (!srcDir.exists()) {
+            Bukkit.getLogger().warning("Map directory does not exist!");
+            return;
+        }
+        File destDir = new File(Bukkit.getWorldContainer() + "/MatchMap");
+        try {
+            FileUtils.copyDirectory(srcDir, destDir);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        Bukkit.getServer().createWorld(new WorldCreator("MatchMap"));
+    }
+	
+	public static void delete() {
+        try {
+        	Bukkit.getServer().unloadWorld("MatchMap", true);
+            File dir = new File(Bukkit.getWorldContainer() + "MatchMap");
+            FileUtils.deleteDirectory(dir);
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+	
 	
 	@SuppressWarnings("deprecation")
 	public boolean onCommand(CommandSender sender, Command cmd,
-		String commandLabel, String[] args) {
+		String commandLabel, String[] args){
 		
 		
 		
@@ -265,7 +289,7 @@ public class Main extends JavaPlugin {
 			} else if (TeamManager.team4.contains(player)) {
 				player.teleport(MapInfo.team4Spawn.location);
 			} else {
-				player.sendMessage(ChatColor.DARK_RED + "Severe error. " + ChatColor.RED + "Please contact an administrator.");
+				player.sendMessage(ChatColor.DARK_RED + "Severe error CODE 2. " + ChatColor.RED + "Please contact an administrator.");
 			}
 		}
 		

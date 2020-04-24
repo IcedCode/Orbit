@@ -26,7 +26,6 @@ public class Region implements Iterable<Block>, Cloneable, ConfigurationSerializ
      * @param l2 - The other corner
      */
     public Region(Location l1, Location l2) {
-            if (!l1.getWorld().equals(l2.getWorld())) throw new IllegalArgumentException("Locations must be on the same world");
             this.worldName = l1.getWorld().getName();
             this.x1 = Math.min(l1.getBlockX(), l2.getBlockX());
             this.y1 = Math.min(l1.getBlockY(), l2.getBlockY());

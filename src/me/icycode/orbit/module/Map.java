@@ -26,7 +26,6 @@ public class Map {
 		this.mapName = mapName;
 		this.version = version;
 		this.creators = creators;
-		this.world = Bukkit.getServer().getWorld(worldName);
 		this.gamemode = gamemode;
 		this.team1 = team1;
 		this.team2 = team2;
