@@ -116,19 +116,14 @@ public class Main extends JavaPlugin {
 		
 		
 		
-		RotationManager.addMap("Oasis");
-		RotationManager.addMap("Melted Canada CTF");
-		RotationManager.addMap("8 Bit");
-		RotationManager.addMap("Melted Canada TDM");
 		RotationManager.addMap("Triax");
 		RotationManager.addMap("Island Hopper");
 		RotationManager.addMap("Tumbleweed");
 		RotationManager.addMap("Oasis");
-		/*
 		RotationManager.addMap("Tumbleweed");
 		RotationManager.addMap("Monkeysun");
 		RotationManager.addMap("Triax");
-		*/
+		
 		
 		
 		

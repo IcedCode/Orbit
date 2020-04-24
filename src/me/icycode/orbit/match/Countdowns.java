@@ -54,19 +54,19 @@ public class Countdowns {
 	
 	public static void gameCountdown(int Time) {
 		if (Time < 6 && Time > 1) {
-			for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+			/*for (Player player : Bukkit.getServer().getOnlinePlayers()) {
 				TitleAPI.sendTitle(player, 5, 12, 3, "" + ChatColor.GREEN + Time + " seconds left", "" + ChatColor.RED + ChatColor.BOLD + ChatColor.UNDERLINE + GameInfo.getGameTitle());
-			}
+			}*/
 			SoundUtils.broadcastSound(Sound.ANVIL_LAND);
 		} else if (Time == 1) {
-			for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+			/*for (Player player : Bukkit.getServer().getOnlinePlayers()) {
 				TitleAPI.sendTitle(player, 5, 12, 3, "" + ChatColor.GREEN + Time + " second left", "" + ChatColor.RED + ChatColor.BOLD + ChatColor.UNDERLINE + GameInfo.getGameTitle());
-			}
+			}*/
 			SoundUtils.broadcastSound(Sound.ANVIL_LAND);
 		} else if (Time == 0) {
-			for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+			/*for (Player player : Bukkit.getServer().getOnlinePlayers()) {
 				TitleAPI.sendTitle(player, 5, 35, 5, "", "" + ChatColor.RED + ChatColor.BOLD + ChatColor.UNDERLINE + "The match has begun!");
-			}
+			}*/
 			SoundUtils.broadcastSound(Sound.WITHER_SPAWN);
 			if (MapInfo.gameMode.equalsIgnoreCase("TDM") || MapInfo.gameMode.equalsIgnoreCase("Parkour") || MapInfo.gameMode.equalsIgnoreCase("CTF")) {
 				for (Player player : Bukkit.getOnlinePlayers()) {
