@@ -2,11 +2,13 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="C:/Users/daniel/Desktop/New Java Dev/Bukkit/spigot 1.8.8.jar"/>
-	<classpathentry kind="lib" path="C:/Users/daniel/Desktop/New Java Dev/Eclipse/lombok.jar"/>
-	<classpathentry kind="lib" path="C:/Users/daniel/Desktop/New Java Dev/Other Plugins/PermissionsEx-1.23.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/daniel/Desktop/New Java Dev/Other Plugins/ProtocolLib.jar"/>
-	<classpathentry kind="lib" path="C:/Users/daniel/Desktop/New Java Dev/Other Plugins/TabAPI.jar"/>
-	<classpathentry kind="lib" path="C:/Users/daniel/Desktop/New Java Dev/Other Plugins/TitleAPI-1.7.4.jar"/>
+	<classpathentry kind="lib" path="H:/Documents/GitHub/Orbit/Dep/BarAPI.jar"/>
+	<classpathentry kind="lib" path="H:/Documents/GitHub/Orbit/Dep/lombok.jar"/>
+	<classpathentry kind="lib" path="H:/Documents/GitHub/Orbit/Dep/PermissionsEx-1.23.2.jar"/>
+	<classpathentry kind="lib" path="H:/Documents/GitHub/Orbit/Dep/ProtocolLib.jar"/>
+	<classpathentry kind="lib" path="H:/Documents/GitHub/Orbit/Dep/spigot 1.8.8.jar"/>
+	<classpathentry kind="lib" path="H:/Documents/GitHub/Orbit/Dep/TabAPI.jar"/>
+	<classpathentry kind="lib" path="H:/Documents/GitHub/Orbit/Dep/TitleAPI-1.7.4.jar"/>
+	<classpathentry kind="lib" path="H:/Documents/GitHub/Orbit/Dep/worldedit-bukkit-6.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -8,10 +8,9 @@ import org.bukkit.World;
 
 public class Spawn {
 	
-	@Getter @Setter private Location location;
+	@Getter @Setter public Location location;
 	
 	public Spawn(World world, double x, double y, double z, float yaw, float pitch) {
-		
 		Location l = new Location(world, x, y, z, yaw, pitch);
 		location = l;
 	}

@@ -252,13 +252,13 @@ public class Main extends JavaPlugin {
 			Loadout.giveLoadout(player);
 			player.setGameMode(GameMode.SURVIVAL);
 			if (TeamManager.team1.contains(player)) {
-				player.teleport(MapInfo.getTeam1Spawn().getLocation());
+				player.teleport(MapInfo.team1Spawn.location);
 			} else if (TeamManager.team2.contains(player)) {
-				player.teleport(MapInfo.getTeam2Spawn().getLocation());
+				player.teleport(MapInfo.team2Spawn.location);
 			} else if (TeamManager.team3.contains(player)) {
-				player.teleport(MapInfo.getTeam3Spawn().getLocation());
+				player.teleport(MapInfo.team3Spawn.location);
 			} else if (TeamManager.team4.contains(player)) {
-				player.teleport(MapInfo.getTeam4Spawn().getLocation());
+				player.teleport(MapInfo.team4Spawn.location);
 			} else {
 				player.sendMessage(ChatColor.DARK_RED + "Severe error. " + ChatColor.RED + "Please contact an administrator.");
 			}
@@ -571,7 +571,7 @@ public class Main extends JavaPlugin {
         if(cmd.getName().equalsIgnoreCase("xp")) {
         	
         	if(args.length == 0) {
-            	player.sendMessage(ChatColor.GREEN + "" + ChatColor.ITALIC + gamePlayer.getXp() + " XP" + ChatColor.GRAY + " | " + ChatColor.DARK_AQUA + ChatColor.ITALIC + "Lvl " + gamePlayer.getXpLevel());
+            	player.sendMessage(ChatColor.GREEN + "" + ChatColor.ITALIC + gamePlayer.xp + " XP" + ChatColor.GRAY + " | " + ChatColor.DARK_AQUA + ChatColor.ITALIC + "Lvl " + gamePlayer.getXpLevel());
             	return true;
         	} else if (args.length == 1) {
         		player.sendMessage(ChatColor.RED + "Error: Correct usage - /xp <name> <amount>");
@@ -593,13 +593,13 @@ public class Main extends JavaPlugin {
         //PRESTIGE
         if(cmd.getName().equalsIgnoreCase("prestige")) {
         	if (gamePlayer.getXpLevel() == 50) {
-        		if(gamePlayer.getPrestige() == 5) {
+        		if(gamePlayer.prestige == 5) {
         			player.sendMessage(ChatColor.RED + "You have reached the maximum prestige level.");
         			return false;
         		}
         		gamePlayer.prestige();
         		gamePlayer.resetXp();
-        		Bukkit.getServer().broadcastMessage(ChatColor.GOLD + "" + ChatColor.BOLD + player.getDisplayName() + " has reached prestige level " + gamePlayer.getPrestige() + "!");
+        		Bukkit.getServer().broadcastMessage(ChatColor.GOLD + "" + ChatColor.BOLD + player.getDisplayName() + " has reached prestige level " + gamePlayer.prestige + "!");
         		SoundUtils.broadcastSound(Sound.ENDERDRAGON_DEATH);
         		return true;
         	} else {

@@ -7,8 +7,8 @@ import org.bukkit.entity.Player;
 public class GamePlayer {
 	
 	private Player player;
-	@Getter private int xp;
-	@Getter private int prestige;
+	@Getter public int xp;
+	@Getter public int prestige;
 	
 	public GamePlayer(Player player) {
 		this.player = player;
