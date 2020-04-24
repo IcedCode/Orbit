@@ -1,0 +1,85 @@
+name: Orbit
+version: 0.1
+main: me.icycode.orbit.Main
+description: Fenner Game Manager
+commands:
+   start:
+     usage: /<command>
+     description: Force a game to start
+   join:
+     usage: /<command>
+     description: Join a game
+     aliases: [player, p]
+   leave:
+     usage: /<command>
+     description: Leave a game
+   map:
+     usage: /<command>
+     description: See information on the current map
+   rotation:
+     usage: /<command>
+     description: See the current map rotation
+     aliases: [rot]
+   warn:
+     usage: /<command>
+     description: Warn an online player for breaching the rules
+   kick:
+     usage: /<command>
+     description: Kick an online player for breaching the rules
+   ban:
+     usage: /<command>
+     description: Ban an online player for breaching the rules
+   s:
+     usage: /<command>
+     description: Staff chat
+     aliases: [staff]
+   a:
+     usage: /<command>
+     description: Admin chat
+     aliases: [admin]
+   d:
+     usage: /<command>
+     description: Developer chat
+     aliases: [developer, dev]
+   report:
+     usage: /<command>
+     description: Report an online player for breaching the rules
+   xp:
+     usage: /<command>
+     description: See your XP level or manage players XP levels
+   prestige:
+     usage: /<command>
+     description: Prestige up to the next level 
+permissions:
+   orbit.trainee:
+      description: Trainee Permissions
+      default: op
+   orbit.mod:
+      description: Moderator Permissions
+      default: op
+      children:
+         core.trainee: true
+   orbit.manager:
+      description: Manager Permissions
+      default: op
+      children:
+         core.mod: true
+         core.mapdev: true
+   orbit.admin:
+      description: Administrator Permissions
+      default: op
+      children:
+         core.manager: true
+   orbit.gold:
+      description: Gold Permissions
+      default: op
+   orbit.emerald:
+      description: Emerald Permissions
+      default: op
+      children:
+         core.gold: true
+   orbit.diamond:
+      description: Diamond Permissions
+      default: op
+      children:
+         core.emerald: true
