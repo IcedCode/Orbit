@@ -193,13 +193,13 @@ public class TeamManager {
 	
 	public static Location getSpawn(Player player){
 		if (team1.contains(player)) {
-			return MapInfo.getTeam1Spawn().getLocation();
+			return MapInfo.team1Spawn.location;
 		} else if (team2.contains(player)) {
-			return MapInfo.getTeam2Spawn().getLocation();
+			return MapInfo.team2Spawn.location;
 		} else if (team3.contains(player)){
-			return MapInfo.getTeam3Spawn().getLocation();
+			return MapInfo.team3Spawn.location;
 		} else if (team4.contains(player)) {
-			return MapInfo.getTeam4Spawn().getLocation();
+			return MapInfo.team4Spawn.location;
 		} else {
 			return null;
 		}
