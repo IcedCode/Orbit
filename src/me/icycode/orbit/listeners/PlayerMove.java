@@ -37,7 +37,7 @@ public class PlayerMove implements Listener {
 			if (r.getLowerX() < l.getX() && r.getLowerY() < l.getY() && r.getLowerZ() < l.getZ() && r.getUpperX() > l.getX() && r.getUpperY() > l.getY() && r.getUpperZ() > l.getZ()){
 				GameManager.endGame(player);
 			} else if (l.getY() < 0) {
-				player.teleport(MapInfo.team1Spawn.getLocation());
+				player.teleport(MapInfo.team1Spawn.location);
 			}
 		}
 		

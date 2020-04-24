@@ -10,6 +10,14 @@ public class GamePlayer {
 	@Getter public int xp;
 	@Getter public int prestige;
 	
+	public int getPrestige() {
+		return prestige;
+	}
+
+	public void setPrestige(int prestige) {
+		this.prestige = prestige;
+	}
+
 	public GamePlayer(Player player) {
 		this.player = player;
 		this.xp = 0; //TODO retrieve XP.

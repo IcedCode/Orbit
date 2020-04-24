@@ -20,19 +20,19 @@ public class PlayerRespawn implements Listener{
 		
 		if (TeamManager.team1.contains(player)) {
 			
-			e.setRespawnLocation(MapInfo.getTeam1Spawn().getLocation());
+			e.setRespawnLocation(MapInfo.getTeam1Spawn().location);
 			Loadout.giveLoadout(player);
 			
 		} else if (TeamManager.team2.contains(player)) {
-			e.setRespawnLocation(MapInfo.getTeam2Spawn().getLocation());
+			e.setRespawnLocation(MapInfo.getTeam2Spawn().location);
 			Loadout.giveLoadout(player);
 			
 		} else if (TeamManager.team3.contains(player)) {
-			e.setRespawnLocation(MapInfo.getTeam3Spawn().getLocation());
+			e.setRespawnLocation(MapInfo.getTeam3Spawn().location);
 			Loadout.giveLoadout(player);
 			
 		} else if (TeamManager.team4.contains(player)) {
-			e.setRespawnLocation(MapInfo.getTeam4Spawn().getLocation());
+			e.setRespawnLocation(MapInfo.getTeam4Spawn().location);
 			Loadout.giveLoadout(player);
 			
 		} 

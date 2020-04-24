@@ -63,16 +63,16 @@ public class GameManager {
 	
 	public static void teleportSpawn(Player player) {
 		if (TeamManager.team1.contains(player)) {
-			player.teleport(MapInfo.getTeam1Spawn().getLocation());
+			player.teleport(MapInfo.getTeam1Spawn().location);
 			
 		} else if (TeamManager.team2.contains(player)) {
-			player.teleport(MapInfo.getTeam2Spawn().getLocation());
+			player.teleport(MapInfo.getTeam2Spawn().location);
 			
 		} else if (TeamManager.team3.contains(player)) {
-			player.teleport(MapInfo.getTeam3Spawn().getLocation());
+			player.teleport(MapInfo.getTeam3Spawn().location);
 			
 		} else if (TeamManager.team4.contains(player)) {
-			player.teleport(MapInfo.getTeam4Spawn().getLocation());
+			player.teleport(MapInfo.getTeam4Spawn().location);
 			
 		}
 	}

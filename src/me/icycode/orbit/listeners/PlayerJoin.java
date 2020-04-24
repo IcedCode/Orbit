@@ -44,7 +44,7 @@ public class PlayerJoin implements Listener {
 		if (GameState.COUNTDOWN || GameState.IN_GAME) {
 			player.setGameMode(GameMode.SPECTATOR);
 			TeamManager.spectators.add(player.getName());
-			player.teleport(MapInfo.getSpectatorSpawn().getLocation());
+			player.teleport(MapInfo.getSpectatorSpawn().location);
 		}
 		
 		if (Main.playersOnline >= 2) {
