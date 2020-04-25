@@ -1,9 +1,8 @@
 package me.icycode.orbit.match;
 
+
 import org.bukkit.World;
 
-import lombok.Getter;
-import lombok.Setter;
 import me.icycode.orbit.module.Region;
 import me.icycode.orbit.module.Spawn;
 
@@ -12,7 +11,12 @@ public class MapInfo {
 	public static String mapName;
 	public static String version;
 	public static String creators;
+	public static String worldName;
 	public static World world;
+	
+
+
+
 	public static String gameMode;
 	public static int teams;
 	
@@ -23,9 +27,11 @@ public class MapInfo {
 	public static Spawn team3Spawn;
 	public static Spawn team4Spawn;
 	
-	//Regeneration
-	public static Region mapBox;
 	
+	
+
+
+
 	//CTH ONLY
 	public static Region hill;
 	
@@ -59,7 +65,16 @@ public class MapInfo {
 		
 		parkourEnd = null;
 		
-		
+	}
+	
+	public static World getWorld() {
+		return world;
+	}
+
+
+
+	public static void setWorld(World world) {
+		MapInfo.world = world;
 	}
 
 
@@ -124,16 +139,6 @@ public class MapInfo {
 
 
 
-	public static Region getMapBox() {
-		return mapBox;
-	}
-
-
-
-	public static void setMapBox(Region mapBox) {
-		MapInfo.mapBox = mapBox;
-	}
-
 
 
 	public static Region getHill() {
@@ -180,5 +185,6 @@ public class MapInfo {
 
 	public static void setParkourEnd(Region parkourEnd) {
 		MapInfo.parkourEnd = parkourEnd;
+		
 	}
 }

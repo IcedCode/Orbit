@@ -75,7 +75,7 @@ public class Countdowns {
 					}
 				}
 				if (MapInfo.gameMode.equalsIgnoreCase("TDM")) {
-					Main.gameTime = 60 * 10;
+					Main.gameTime = 60 * 2;
 				}
 				
 				if (MapInfo.gameMode.equalsIgnoreCase("CTF")) {

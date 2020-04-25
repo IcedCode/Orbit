@@ -2,6 +2,7 @@ package me.icycode.orbit.match;
 
 import java.util.ArrayList;
 
+import me.icycode.orbit.Main;
 import me.icycode.orbit.module.Region;
 import me.icycode.orbit.module.Spawn;
 
@@ -22,6 +23,9 @@ public class RotationManager {
 		rotation.remove(0);
 		if (rotation.size() >= 0) {
 			currentMap = rotation.get(0);
+			setMapInfo();//Won't load world at this time
+			Main.delete();
+			Main.copy();
 			setMapInfo();
 		}
 		if (rotation.get(0).isEmpty()) {
@@ -31,16 +35,15 @@ public class RotationManager {
 	}
 	
 	public static void setMapInfo() {
+		MapInfo.setWorld(Bukkit.getWorld("MatchMap"));
 		if (currentMap == "Oasis") {
 			
 			MapInfo.mapName = "Oasis";
 			MapInfo.gameMode = "TDM";
 			MapInfo.creators = "samthemenace";
 			MapInfo.version = "0.1";
-			MapInfo.world = Bukkit.getServer().getWorld("Oasis");
+			MapInfo.worldName = ("Oasis");
 			MapInfo.teams = 2;
-			
-
 			
 			Spawn spectatorSpawn = new Spawn(MapInfo.world, 0.5, 84, -33.5, 0, 0);
 			MapInfo.setSpectatorSpawn(spectatorSpawn);
@@ -62,7 +65,7 @@ public class RotationManager {
 			MapInfo.gameMode = "TDM";
 			MapInfo.creators = "Running_Boy_12";
 			MapInfo.version = "1.0";
-			MapInfo.world = Bukkit.getServer().getWorld("Triax");
+			MapInfo.worldName = ("Triax");
 			MapInfo.teams = 2;
 									
 			
@@ -89,7 +92,7 @@ public class RotationManager {
 			MapInfo.gameMode = "TDM";
 			MapInfo.creators = "ParaSpider";
 			MapInfo.version = "1.0";
-			MapInfo.world = Bukkit.getServer().getWorld("Tumbleweed");
+			MapInfo.worldName = ("Tumbleweed");
 			MapInfo.teams = 2;
 			
 			Spawn spectatorSpawn = new Spawn(MapInfo.world, 2.5, 6, -33.5, 90, 0);
@@ -106,11 +109,12 @@ public class RotationManager {
 			MapInfo.setTeam2Spawn(team2Spawn);
 			
 		} else if (currentMap == "Island Hopper") {
+			
 			MapInfo.mapName = "Island Hopper";
 			MapInfo.gameMode = "Parkour";
 			MapInfo.creators = "IcyCode, samthemenace";
 			MapInfo.version = "1.0";
-			MapInfo.world = Bukkit.getServer().getWorld("IslandHopper");
+			MapInfo.worldName = ("IslandHopper");
 			MapInfo.teams = 1;
 			
 			Spawn spectatorSpawn = new Spawn(MapInfo.world, -1, 81, -3, 0, 0);
@@ -131,7 +135,7 @@ public class RotationManager {
 			MapInfo.gameMode = "TDM";
 			MapInfo.creators = "IcyCode";
 			MapInfo.version = "1.0";
-			MapInfo.world = Bukkit.getServer().getWorld("Melted Canada TDM");
+			MapInfo.worldName = ("Melted Canada TDM");
 			MapInfo.teams = 2;
 			
 			Spawn spectatorSpawn = new Spawn(MapInfo.world, -66.5, 82, 20.5, 0, 0);
@@ -153,7 +157,7 @@ public class RotationManager {
 			MapInfo.gameMode = "CTF";
 			MapInfo.creators = "IcyCode";
 			MapInfo.version = "1.0";
-			MapInfo.world = Bukkit.getServer().getWorld("Melted Canada CTF");
+			MapInfo.worldName = ("Melted Canada CTF");
 			MapInfo.teams = 2;
 			
 			Spawn spectatorSpawn = new Spawn(MapInfo.world, -66.5, 82, 20.5, 0, 0);
@@ -183,7 +187,7 @@ public class RotationManager {
 			MapInfo.gameMode = "TDM";
 			MapInfo.creators = "samthemenace, The_Banter_1";
 			MapInfo.version = "1.0";
-			MapInfo.world = Bukkit.getServer().getWorld("Frozen Waste");
+			MapInfo.worldName = ("Frozen Waste");
 			MapInfo.teams = 2;
 			
 			Spawn spectatorSpawn = new Spawn(MapInfo.world, 0.5, 67, 14, -180, 0);
@@ -214,7 +218,7 @@ public class RotationManager {
 			MapInfo.gameMode = "Parkour";
 			MapInfo.creators = "samthemenace";
 			MapInfo.version = "1.0";
-			MapInfo.world = Bukkit.getServer().getWorld("8 Bit");
+			MapInfo.worldName = ("8 Bit");
 			MapInfo.teams = 1;
 			
 			Spawn spectatorSpawn = new Spawn(MapInfo.world, 209.5, 115, 300.5, 180, 0);
@@ -236,7 +240,7 @@ public class RotationManager {
 			MapInfo.gameMode = "TDM";
 			MapInfo.creators = "ParaSpider, Zedther";
 			MapInfo.version = "1.0";
-			MapInfo.world = Bukkit.getServer().getWorld("Monkeysun");
+			MapInfo.worldName = ("Monkeysun");
 			MapInfo.teams = 4;
 			
 			MapInfo.spectatorSpawnX = -177.5;
@@ -286,7 +290,7 @@ public class RotationManager {
 			MapInfo.gameMode = "TDM";
 			MapInfo.creators = "ParaSpider";
 			MapInfo.version = "1.0";
-			MapInfo.world = Bukkit.getServer().getWorld("Hellway");
+			MapInfo.worldName = ("Hellway");
 			MapInfo.teams = 2;
 			
 			Spawn spectatorSpawn = new Spawn(MapInfo.world, 1.5, 98, 13.5, 0, 0);
