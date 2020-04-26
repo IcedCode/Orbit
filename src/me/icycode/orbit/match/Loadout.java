@@ -40,6 +40,29 @@ public class Loadout {
 			player.getInventory().setItem(2, gapple);
 			player.getInventory().setItem(3, food);
 			player.getInventory().setItem(9, arrow);
+		} else if (MapInfo.gameMode.equalsIgnoreCase("DTM")) {
+			//Item Creation
+			ItemStack sword = new ItemStack(Material.STONE_SWORD, 1);
+			ItemStack bow = new ItemStack(Material.BOW, 1);
+			bow.addEnchantment(Enchantment.ARROW_INFINITE, 1);
+			ItemStack pick = new ItemStack(Material.DIAMOND_PICKAXE, 1);
+			ItemStack gapple = new ItemStack(Material.GOLDEN_APPLE, 3);
+			ItemStack food = new ItemStack(Material.COOKED_BEEF, 8);
+			ItemStack glass = new ItemStack(Material.GLASS, 32);
+			ItemStack sandstone = new ItemStack(Material.SANDSTONE, 64);
+			ItemStack log = new ItemStack(Material.LOG, 64);
+			ItemStack arrow = new ItemStack(Material.ARROW, 64);
+			
+			//Item set
+			player.getInventory().setItem(0, sword);
+			player.getInventory().setItem(1, bow);
+			player.getInventory().setItem(2, pick);
+			player.getInventory().setItem(3, gapple);
+			player.getInventory().setItem(4, food);
+			player.getInventory().setItem(5, glass);
+			player.getInventory().setItem(6, sandstone);
+			player.getInventory().setItem(7, log);
+			player.getInventory().setItem(9, arrow);
 		}
 		
 		Helmet.give(player);

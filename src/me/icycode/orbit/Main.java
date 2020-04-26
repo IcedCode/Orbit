@@ -114,6 +114,7 @@ public class Main extends JavaPlugin {
 		//RotationManager.rotation = (ArrayList<String>) getConfig().getStringList("rotation");
 		
 		RotationManager.addMap("Tumbleweed");
+		RotationManager.addMap("Senex 1");
 		RotationManager.addMap("Tumbleweed");
 		RotationManager.addMap("Island Hopper");
 		RotationManager.addMap("Tumbleweed");
@@ -641,15 +642,20 @@ public class Main extends JavaPlugin {
         }
         
         //SETNEXT
-        /**
+        
         if(cmd.getName().equalsIgnoreCase("setnext")) {
         	if(!(player.hasPermission("staffchat.admin"))){
         		Chatter.PermissionWarn();
         		return true;
         	}
         	
+        	if(args.length == 0) {
+        		player.sendMessage(Chatter.Warning() + ChatColor.RED + " ERROR - Correct Usage: /setnext <mapname> ");
+        	}
         	
-        } **/
+        	RotationManager.rotation.set(1, args.toString());
+        	RotationManager.setNextMap();
+        } 
 
         return true;
 		

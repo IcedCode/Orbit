@@ -3,6 +3,7 @@ package me.icycode.orbit.match;
 
 import org.bukkit.World;
 
+import me.icycode.orbit.match.gamemodes.DTM;
 import me.icycode.orbit.module.Region;
 import me.icycode.orbit.module.Spawn;
 
@@ -65,6 +66,7 @@ public class MapInfo {
 		
 		parkourEnd = null;
 		
+		DTM.monuments.clear();
 	}
 	
 	public static World getWorld() {

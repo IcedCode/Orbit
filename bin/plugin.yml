@@ -49,7 +49,10 @@ commands:
      description: See your XP level or manage players XP levels
    prestige:
      usage: /<command>
-     description: Prestige up to the next level 
+     description: Prestige up to the next level
+   setnext:
+     usage: /<command>
+     description: Set the next map
 permissions:
    orbit.trainee:
       description: Trainee Permissions

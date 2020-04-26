@@ -74,6 +74,13 @@ public class Countdowns {
 						player.setGameMode(GameMode.ADVENTURE);
 					}
 				}
+			} else if (MapInfo.gameMode.equalsIgnoreCase("DTM")) {
+					for (Player player : Bukkit.getOnlinePlayers()) {
+						if (!TeamManager.spectators.contains(player.getName())) {
+							player.setGameMode(GameMode.SURVIVAL);
+						}
+					}
+				}
 				if (MapInfo.gameMode.equalsIgnoreCase("TDM")) {
 					Main.gameTime = 60 * 2;
 				}
@@ -81,7 +88,6 @@ public class Countdowns {
 				if (MapInfo.gameMode.equalsIgnoreCase("CTF")) {
 					CTF.resetInfo();
 				}
-			}
 			GameState.setIn_Game();
 		}
 	}

@@ -3,6 +3,8 @@ package me.icycode.orbit.match;
 import java.util.ArrayList;
 
 import me.icycode.orbit.Main;
+import me.icycode.orbit.match.gamemodes.DTM;
+import me.icycode.orbit.module.Monument;
 import me.icycode.orbit.module.Region;
 import me.icycode.orbit.module.Spawn;
 
@@ -23,9 +25,10 @@ public class RotationManager {
 		rotation.remove(0);
 		if (rotation.size() >= 0) {
 			currentMap = rotation.get(0);
-			setMapInfo();//Won't load world at this time
+			setMapInfo();
 			Main.delete();
 			Main.copy();
+			MapInfo.resetInfo();
 			setMapInfo();
 		}
 		if (rotation.get(0).isEmpty()) {
@@ -306,7 +309,40 @@ public class RotationManager {
 			Spawn team2Spawn = new Spawn(MapInfo.world, -64.5, 60, 0.5, -90, 0);
 			MapInfo.setTeam2Spawn(team2Spawn);
 			
-		} /* else if (currentMap == "The Cage") {
+		} else if (currentMap == "Senex 1") {
+			MapInfo.mapName = "Senex 1";
+			MapInfo.gameMode = "DTM";
+			MapInfo.creators = "ParaPenguin";
+			MapInfo.version = "1.0";
+			MapInfo.worldName = "senex_1";
+			MapInfo.teams = 2;
+			
+			Spawn spectatorSpawn = new Spawn(MapInfo.world, 82, 37, -809, 0, 0);
+			MapInfo.setSpectatorSpawn(spectatorSpawn);
+			
+			TeamManager.team1.setName("Lime");
+			TeamManager.team1.setColor("&a");
+			Spawn team1Spawn = new Spawn(MapInfo.world, 35, 20, -743, -90, 0);
+			MapInfo.setTeam1Spawn(team1Spawn);
+			Monument limeLeft = new Monument(new Location(MapInfo.world, 176, 23, -755), TeamManager.team1, "Left");
+			DTM.monuments.add(limeLeft);
+			Monument limeRight = new Monument(new Location(MapInfo.world, 176, 23, -733), TeamManager.team1, "Right");
+			DTM.monuments.add(limeRight);
+			
+			TeamManager.team2.setName("Cyan");
+			TeamManager.team2.setColor("&3");
+			Spawn team2Spawn = new Spawn(MapInfo.world, 129, 20, -743, 90, 0);
+			MapInfo.setTeam2Spawn(team2Spawn);
+			Monument cyanLeft = new Monument(new Location(MapInfo.world, -12, 23, -733), TeamManager.team2, "Left");
+			DTM.monuments.add(cyanLeft);
+			Monument cyanRight = new Monument(new Location(MapInfo.world, -12, 23, -755), TeamManager.team2, "Right");
+			DTM.monuments.add(cyanRight);
+			
+			DTM.objectives = 2;
+		}
+		
+		
+		/* else if (currentMap == "The Cage") {
 			MapInfo.mapName = "The Cage";
 			MapInfo.gameMode = "TDM";
 			MapInfo.creators = "Kroest";

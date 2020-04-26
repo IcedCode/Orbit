@@ -11,6 +11,8 @@ public class GameInfo {
 			return "Parkour";
 		} else if (MapInfo.gameMode.equalsIgnoreCase("CTF")){
 			return "Capture The Flag";
+		} else if (MapInfo.gameMode.equalsIgnoreCase("DTM")){
+			return "Destroy The Monument";
 		} else {
 			return "UNKNOWN";
 		}
@@ -21,6 +23,8 @@ public class GameInfo {
 			return "Be the team with the most kills in 10 minutes!";
 		} else if (MapInfo.gameMode.equalsIgnoreCase("cth")) {
 			return "Capture the hill and get kills for points, first to 100 wins!";
+		} else if (MapInfo.gameMode.equalsIgnoreCase("dtm")) {
+			return "Destroy the opposing teams monuments to win!";
 		} else return "UNKNOWN";
 	}
 	
