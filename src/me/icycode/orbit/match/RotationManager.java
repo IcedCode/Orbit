@@ -328,6 +328,8 @@ public class RotationManager {
 			DTM.monuments.add(limeLeft);
 			Monument limeRight = new Monument(new Location(MapInfo.world, 176, 23, -733), TeamManager.team1, "Right");
 			DTM.monuments.add(limeRight);
+			Region limeSpawn = new Region(currentMap, 41, 19, -750, 29, 25, -738);
+			MapInfo.protectedZones.add(limeSpawn);
 			
 			TeamManager.team2.setName("Cyan");
 			TeamManager.team2.setColor("&3");
@@ -337,8 +339,94 @@ public class RotationManager {
 			DTM.monuments.add(cyanLeft);
 			Monument cyanRight = new Monument(new Location(MapInfo.world, -12, 23, -755), TeamManager.team2, "Right");
 			DTM.monuments.add(cyanRight);
+			Region cyanSpawn = new Region(currentMap, 123, 19, -738, 135, 25, -750);
+			MapInfo.protectedZones.add(cyanSpawn);
 			
 			DTM.objectives = 2;
+		} else if (currentMap == "Halcyon") {
+			MapInfo.mapName = "Halcyon";
+			MapInfo.gameMode = "DTM";
+			MapInfo.creators = "funkystudios";
+			MapInfo.version = "1.0";
+			MapInfo.worldName = "Halcyon";
+			MapInfo.teams = 2;
+			
+			Spawn spectatorSpawn = new Spawn(MapInfo.world, -34.5, 85, -816.5, -90, 0);
+			MapInfo.setSpectatorSpawn(spectatorSpawn);
+			
+			TeamManager.team1.setName("Purple");
+			TeamManager.team1.setColor("&5");
+			Spawn team1Spawn = new Spawn(MapInfo.world, 14, 75, -871, 0, 0);
+			MapInfo.setTeam1Spawn(team1Spawn);
+			Monument purpleLeft = new Monument(new Location(MapInfo.world, 41, 74, -773), TeamManager.team1, "Left");
+			DTM.monuments.add(purpleLeft);
+			Monument purpleRight = new Monument(new Location(MapInfo.world, -13, 74, -773), TeamManager.team1, "Right");
+			DTM.monuments.add(purpleRight);
+			Region purpleSpawn = new Region(currentMap, 19, 72, -866, 9, 85, -877);
+			MapInfo.protectedZones.add(purpleSpawn);
+			
+			TeamManager.team2.setName("Red");
+			TeamManager.team2.setColor("&4");
+			Spawn team2Spawn = new Spawn(MapInfo.world, 14, 75, -761, -180, 0);
+			MapInfo.setTeam2Spawn(team2Spawn);
+			Monument redLeft = new Monument(new Location(MapInfo.world, -13, 74, -861), TeamManager.team2, "Left");
+			DTM.monuments.add(redLeft);
+			Monument redRight = new Monument(new Location(MapInfo.world, 41, 74, -861), TeamManager.team2, "Right");
+			DTM.monuments.add(redRight);
+			Region redSpawn = new Region(currentMap, 8, 72, -768, 19, 85, -757);
+			MapInfo.protectedZones.add(redSpawn);
+			
+			DTM.objectives = 2;
+		} else if (currentMap == "Quintlet") {
+			MapInfo.mapName = "Quintlet";
+			MapInfo.gameMode = "DTM";
+			MapInfo.creators = "IcyCode & The_Good_1";
+			MapInfo.version = "1.0";
+			MapInfo.worldName = "quintlet";
+			MapInfo.teams = 2;
+			
+			Spawn spectatorSpawn = new Spawn(MapInfo.world, -113.5, 127, 73.5, -90, 0);
+			MapInfo.setSpectatorSpawn(spectatorSpawn);
+			
+			TeamManager.team1.setName("Purple");
+			TeamManager.team1.setColor("&5");
+			Spawn team1Spawn = new Spawn(MapInfo.world, 0.5, 72, 145, 180, 0);
+			MapInfo.setTeam1Spawn(team1Spawn);
+			Monument purpleFrontLeft = new Monument(new Location(MapInfo.world, -37, 74, 0), TeamManager.team1, "Front Left");
+			DTM.monuments.add(purpleFrontLeft);
+			Monument purpleFrontRight = new Monument(new Location(MapInfo.world, 37, 74, 0), TeamManager.team1, "Front Right");
+			DTM.monuments.add(purpleFrontRight);
+			Monument purpleBackLeft = new Monument(new Location(MapInfo.world, -37, 74, -37), TeamManager.team1, "Back Left");
+			DTM.monuments.add(purpleBackLeft);
+			Monument purpleBackRight = new Monument(new Location(MapInfo.world, 37, 74, -37), TeamManager.team1, "Back Right");
+			DTM.monuments.add(purpleBackRight);
+			Monument purpleMiddle = new Monument(new Location(MapInfo.world, 0, 74, -37), TeamManager.team1, "Middle");
+			DTM.monuments.add(purpleMiddle);
+			Region purpleSpawn = new Region(currentMap, 10, 65, 137, -10, 87, 149);
+			MapInfo.protectedZones.add(purpleSpawn);
+			Region purpleWalk = new Region(currentMap, -2, 70, 135, 2, 76, 104);
+			MapInfo.protectedZones.add(purpleWalk);
+			
+			TeamManager.team2.setName("Cyan");
+			TeamManager.team2.setColor("&3");
+			Spawn team2Spawn = new Spawn(MapInfo.world, 0.5, 72, 0.5, 0, 0);
+			MapInfo.setTeam2Spawn(team2Spawn);
+			Monument cyanFrontLeft = new Monument(new Location(MapInfo.world, 37, 74, 146), TeamManager.team2, "Front Left");
+			DTM.monuments.add(cyanFrontLeft);
+			Monument cyanFrontRight = new Monument(new Location(MapInfo.world, -37, 74, 146), TeamManager.team2, "Front Right");
+			DTM.monuments.add(cyanFrontRight);
+			Monument cyanBackLeft = new Monument(new Location(MapInfo.world, 37, 74, 183), TeamManager.team2, "Back Left");
+			DTM.monuments.add(cyanBackLeft);
+			Monument cyanBackRight = new Monument(new Location(MapInfo.world, -37, 74, 183), TeamManager.team2, "Back Right");
+			DTM.monuments.add(cyanBackRight);
+			Monument cyanMiddle = new Monument(new Location(MapInfo.world, 0, 74, 183), TeamManager.team2, "Middle");
+			DTM.monuments.add(cyanMiddle);
+			Region cyanSpawn = new Region(currentMap, -10, 65, 10, 10, 87, -10);
+			MapInfo.protectedZones.add(cyanSpawn);
+			Region cyanWalk = new Region(currentMap, 2, 70, 12, -2, 76, 42);
+			MapInfo.protectedZones.add(cyanWalk);
+			
+			DTM.objectives = 5;
 		}
 		
 		

@@ -1,9 +1,12 @@
 package me.icycode.orbit.match;
 
 
+import java.util.ArrayList;
+
 import org.bukkit.World;
 
 import me.icycode.orbit.match.gamemodes.DTM;
+import me.icycode.orbit.module.Monument;
 import me.icycode.orbit.module.Region;
 import me.icycode.orbit.module.Spawn;
 
@@ -28,10 +31,7 @@ public class MapInfo {
 	public static Spawn team3Spawn;
 	public static Spawn team4Spawn;
 	
-	
-	
-
-
+	public static ArrayList<Region> protectedZones = new ArrayList<Region>();
 
 	//CTH ONLY
 	public static Region hill;
@@ -58,6 +58,8 @@ public class MapInfo {
 		team2Spawn = null;
 		team3Spawn = null;
 		team4Spawn = null;
+		
+		protectedZones.clear();
 		
 		hill = null;
 		

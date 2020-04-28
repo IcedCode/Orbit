@@ -85,7 +85,7 @@ public class Region implements Iterable<Block>, Cloneable, ConfigurationSerializ
      * @param y2 - Y co-ordinate of corner 2
      * @param z2 - Z co-ordinate of corner 2
      */
-    private Region(String worldName, int x1, int y1, int z1, int x2, int y2, int z2) {
+    public Region(String worldName, int x1, int y1, int z1, int x2, int y2, int z2) {
             this.worldName = worldName;
             this.x1 = Math.min(x1, x2);
             this.x2 = Math.max(x1, x2);

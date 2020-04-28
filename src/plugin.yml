@@ -50,9 +50,9 @@ commands:
    prestige:
      usage: /<command>
      description: Prestige up to the next level
-   setnext:
-     usage: /<command>
-     description: Set the next map
+##   setnext:
+##     usage: /<command>
+##     description: Set the next map
 permissions:
    orbit.trainee:
       description: Trainee Permissions

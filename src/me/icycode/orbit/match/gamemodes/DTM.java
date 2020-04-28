@@ -40,8 +40,8 @@ public class DTM {
 	}
 	
 	public static void endGameLogic(Team team) {
+		GameManager.endGame(null);
 		if (team == TeamManager.team1) {
-			
 			//Team 1 Wins
 			
 			//Win Message
@@ -89,6 +89,6 @@ public class DTM {
 				}
 			}
 		}
-		GameManager.endGame(null);
+		
 	}
 }

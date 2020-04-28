@@ -28,6 +28,7 @@ import me.icycode.orbit.match.RotationManager;
 import me.icycode.orbit.match.TeamManager;
 import me.icycode.orbit.sql.mysql.MySQL;
 import me.icycode.orbit.utils.SoundUtils;
+import me.icycode.orbit.utils.Tab;
 import me.icycode.orbit.utils.chat.Announcement;
 import me.icycode.orbit.utils.chat.Chatter;
 
@@ -114,10 +115,13 @@ public class Main extends JavaPlugin {
 		//RotationManager.rotation = (ArrayList<String>) getConfig().getStringList("rotation");
 		
 		RotationManager.addMap("Tumbleweed");
+		RotationManager.addMap("Quintlet");
+		RotationManager.addMap("Halcyon");
 		RotationManager.addMap("Senex 1");
 		RotationManager.addMap("Tumbleweed");
 		RotationManager.addMap("Island Hopper");
 		RotationManager.addMap("Tumbleweed");
+		RotationManager.addMap("8 Bit");
 		RotationManager.addMap("Oasis");
 		RotationManager.addMap("Tumbleweed");
 		RotationManager.addMap("Monkeysun");
@@ -177,7 +181,7 @@ public class Main extends JavaPlugin {
 								ParticleEffect.FIREWORKS_SPARK.display(Color.ORANGE, 0, 2, 0, 2, 10, p.getLocation(), 10);
 							}
 						} **/
-						
+						//Tab.update();
 					}
 				}, 20, 20);
 	}
@@ -643,7 +647,7 @@ public class Main extends JavaPlugin {
         
         //SETNEXT
         
-        if(cmd.getName().equalsIgnoreCase("setnext")) {
+        /*if(cmd.getName().equalsIgnoreCase("setnext")) {
         	if(!(player.hasPermission("staffchat.admin"))){
         		Chatter.PermissionWarn();
         		return true;
@@ -655,7 +659,7 @@ public class Main extends JavaPlugin {
         	
         	RotationManager.rotation.set(1, args.toString());
         	RotationManager.setNextMap();
-        } 
+        } */
 
         return true;
 		
