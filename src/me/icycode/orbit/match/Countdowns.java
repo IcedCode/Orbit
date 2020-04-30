@@ -28,24 +28,14 @@ public class Countdowns {
 			
 			for (Player player : Bukkit.getOnlinePlayers()) {
 				if (TeamManager.team1.contains(player)) {
-					player.teleport(MapInfo.getTeam1Spawn().location);
-				} else if (TeamManager.team2.contains(player)) {
-					player.teleport(MapInfo.getTeam2Spawn().location);
-				} else if (TeamManager.team3.contains(player)) {
-					player.teleport(MapInfo.getTeam3Spawn().location);
-				} else if (TeamManager.team4.contains(player)) {
-					player.teleport(MapInfo.getTeam4Spawn().location);
-				} else if (TeamManager.spectators.contains(player.getName())){
 					player.teleport(MapInfo.getSpectatorSpawn().location);
-					player.setGameMode(GameMode.SPECTATOR);
 				}
-				Loadout.giveLoadout(player);
 				player.setGameMode(GameMode.SPECTATOR);
 				
 			}
 			SoundUtils.broadcastSound(Sound.NOTE_BASS);
 			GameState.setCountdown();
-			Main.gameCountdown = 8; //Allows time for tp for slow clients (+3 secs)
+			Main.gameCountdown = 13; //Allows time for tp for slow clients (+3 secs)
 			
 			
 		}
@@ -57,15 +47,28 @@ public class Countdowns {
 			for (Player player : Bukkit.getServer().getOnlinePlayers()) {
 				TitleAPI.sendTitle(player, 5, 12, 3, "" + ChatColor.GREEN + Time + " seconds left", "" + ChatColor.RED + ChatColor.BOLD + ChatColor.UNDERLINE + GameInfo.getGameTitle());
 			}
-			SoundUtils.broadcastSound(Sound.ANVIL_LAND);
+			SoundUtils.broadcastSound(Sound.NOTE_PIANO);
 		} else if (Time == 1) {
 			for (Player player : Bukkit.getServer().getOnlinePlayers()) {
 				TitleAPI.sendTitle(player, 5, 12, 3, "" + ChatColor.GREEN + Time + " second left", "" + ChatColor.RED + ChatColor.BOLD + ChatColor.UNDERLINE + GameInfo.getGameTitle());
+				
 			}
-			SoundUtils.broadcastSound(Sound.ANVIL_LAND);
+			SoundUtils.broadcastSound(Sound.NOTE_BASS);
 		} else if (Time == 0) {
 			for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+				Loadout.giveLoadout(player);
 				TitleAPI.sendTitle(player, 5, 35, 5, "", "" + ChatColor.RED + ChatColor.BOLD + ChatColor.UNDERLINE + "The match has begun!");
+				if (TeamManager.team1.contains(player)) {
+					player.teleport(MapInfo.getTeam1Spawn().location);
+				} else if (TeamManager.team2.contains(player)) {
+					player.teleport(MapInfo.getTeam2Spawn().location);
+				} else if (TeamManager.team3.contains(player)) {
+					player.teleport(MapInfo.getTeam3Spawn().location);
+				} else if (TeamManager.team4.contains(player)) {
+					player.teleport(MapInfo.getTeam4Spawn().location);
+				} else if (TeamManager.spectators.contains(player.getName())){
+					player.setGameMode(GameMode.SPECTATOR);
+				}
 			}
 			SoundUtils.broadcastSound(Sound.WITHER_SPAWN);
 			if (MapInfo.gameMode.equalsIgnoreCase("TDM") || MapInfo.gameMode.equalsIgnoreCase("Parkour") || MapInfo.gameMode.equalsIgnoreCase("CTF")) {

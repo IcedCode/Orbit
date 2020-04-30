@@ -19,9 +19,7 @@ public class PlayerMove implements Listener {
 	public void onPlayerMove(PlayerMoveEvent e) {
 		Player player = e.getPlayer();
 		player.setPlayerWeather(WeatherType.CLEAR);
-		if (GameState.COUNTDOWN) {
-			e.setTo(e.getFrom());
-		} else if (GameState.IN_LOBBY || GameState.STARTING) {
+		if (GameState.IN_LOBBY || GameState.STARTING) {
 			player.setFoodLevel(20);
 			if (player.getLocation().getY() < 0) {
 				GameManager.teleportToLobby(player);

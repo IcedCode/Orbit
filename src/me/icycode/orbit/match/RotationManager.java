@@ -25,6 +25,7 @@ public class RotationManager {
 		rotation.remove(0);
 		if (rotation.size() >= 0) {
 			currentMap = rotation.get(0);
+			MapInfo.resetInfo();
 			setMapInfo();
 			Main.delete();
 			Main.copy();

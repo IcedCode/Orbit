@@ -69,6 +69,7 @@ public class MapInfo {
 		parkourEnd = null;
 		
 		DTM.monuments.clear();
+		DTM.objectives = 0;
 	}
 	
 	public static World getWorld() {
