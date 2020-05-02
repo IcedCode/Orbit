@@ -3,6 +3,7 @@ package me.icycode.orbit.listeners;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Sound;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -23,6 +24,12 @@ public class BlockBreak implements Listener{
 	
 	@EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
+		Player player = event.getPlayer();
+		
+		if(TeamManager.spectators.contains(player.getName())) {
+			event.setCancelled(true);
+		}
+		
 		if (GameState.IN_LOBBY || GameState.STARTING || GameState.COUNTDOWN /*|| MapInfo.gameMode == "TDM" */|| MapInfo.gameMode.equalsIgnoreCase("Parkour")) {
             event.setCancelled(true);
         }

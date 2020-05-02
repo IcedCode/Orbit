@@ -27,8 +27,8 @@ public class PlayerLeave implements Listener {
 			TeamManager.team3.removePlayer(player);
 		} else if (TeamManager.team4.contains(player)) {
 			TeamManager.team4.removePlayer(player);
-		} else if (TeamManager.spectators.contains(player)) {
-			TeamManager.spectators.remove(player);
+		} else if (TeamManager.spectators.contains(player.getName())) {
+			TeamManager.spectators.remove(player.getName());
 		}
 	}
 }
