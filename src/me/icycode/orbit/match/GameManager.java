@@ -4,6 +4,7 @@ import me.icycode.orbit.Main;
 import me.icycode.orbit.match.gamemodes.CTF;
 import me.icycode.orbit.match.gamemodes.Parkour;
 import me.icycode.orbit.match.gamemodes.TDM;
+import me.icycode.orbit.utils.Scoreboard;
 import me.icycode.orbit.utils.SoundUtils;
 import me.icycode.orbit.utils.player.Inventory;
 
@@ -61,6 +62,7 @@ public class GameManager {
 		}
 		
 		RotationManager.setNextMap();
+		Scoreboard.LobbyUpdate();
 	}
 	
 	public static void teleportSpawn(Player player) {

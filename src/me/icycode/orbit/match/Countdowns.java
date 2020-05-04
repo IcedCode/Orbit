@@ -16,6 +16,7 @@ import com.connorlinfoot.titleapi.TitleAPI;
 public class Countdowns {
 	
 	public static void lobbyCountdown(int time) {
+		Scoreboard.LobbyUpdate();
 		if (time % 15 == 0 && time > 0) {
 			Bukkit.getServer().broadcastMessage(ChatColor.GREEN + "The match on " + ChatColor.DARK_GREEN + ChatColor.BOLD + MapInfo.mapName + ChatColor.GREEN + " is starting in " + ChatColor.DARK_GREEN + ChatColor.BOLD + time + ChatColor.GREEN + " seconds.");
 			SoundUtils.broadcastSound(Sound.CLICK);
@@ -37,6 +38,8 @@ public class Countdowns {
 			SoundUtils.broadcastSound(Sound.NOTE_BASS);
 			GameState.setCountdown();
 			Main.gameCountdown = 8; //Allows time for tp for slow clients (+3 secs)
+			Scoreboard.DTMUpdate();
+			Scoreboard.TDMUpdate();
 			for (Player player : Bukkit.getOnlinePlayers()) {
 				if (TeamManager.team1.contains(player)) {
 					player.teleport(MapInfo.getTeam1Spawn().location);

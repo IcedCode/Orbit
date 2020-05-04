@@ -26,6 +26,7 @@ public class PlayerJoin implements Listener {
 		Player player = e.getPlayer();
 		
 		Main.onlinePlayers.put(player, new GamePlayer(player));
+		Scoreboard.LobbyUpdate();
 		
 		e.setJoinMessage(ChatColor.DARK_GRAY + "(" + ChatColor.DARK_GREEN + ChatColor.ITALIC + "+" + ChatColor.DARK_GRAY + ") " + ChatColor.translateAlternateColorCodes('&', PermissionsEx.getUser(player).getPrefix()) + " " + ChatColor.AQUA + player.getDisplayName());
 		
@@ -48,6 +49,7 @@ public class PlayerJoin implements Listener {
 			player.teleport(MapInfo.getSpectatorSpawn().location);
 		}
 		Scoreboard.DTMUpdate();
+		Scoreboard.TDMUpdate();
 		
 		if (Main.playersOnline >= 2) {
 			

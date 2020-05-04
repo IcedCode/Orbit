@@ -5,6 +5,7 @@ import me.icycode.orbit.Main;
 import me.icycode.orbit.match.MapInfo;
 import me.icycode.orbit.match.TeamManager;
 import me.icycode.orbit.match.gamemodes.CTF;
+import me.icycode.orbit.utils.Scoreboard;
 import me.icycode.orbit.utils.SoundUtils;
 import me.icycode.orbit.utils.chat.Chatter;
 
@@ -44,7 +45,7 @@ public class PlayerDeath implements Listener{
 			Player killer = e.getEntity().getKiller();
 			String killerName = e.getEntity().getKiller().getDisplayName();
 			e.setDeathMessage(ChatColor.translateAlternateColorCodes('&', TeamManager.getPlayerTeamColor(player) + player.getDisplayName() + ChatColor.GRAY + " was slain by " + TeamManager.getPlayerTeamColor(killer) + killerName + ChatColor.GRAY + "."));
-			
+			Scoreboard.TDMUpdate();
 			
 			 
 			if (killer != player) {
