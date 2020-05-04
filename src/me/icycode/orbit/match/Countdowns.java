@@ -2,6 +2,7 @@ package me.icycode.orbit.match;
 
 import me.icycode.orbit.Main;
 import me.icycode.orbit.match.gamemodes.CTF;
+import me.icycode.orbit.utils.Scoreboard;
 import me.icycode.orbit.utils.SoundUtils;
 
 import org.bukkit.Bukkit;
@@ -35,7 +36,20 @@ public class Countdowns {
 			}
 			SoundUtils.broadcastSound(Sound.NOTE_BASS);
 			GameState.setCountdown();
-			Main.gameCountdown = 13; //Allows time for tp for slow clients (+3 secs)
+			Main.gameCountdown = 8; //Allows time for tp for slow clients (+3 secs)
+			for (Player player : Bukkit.getOnlinePlayers()) {
+				if (TeamManager.team1.contains(player)) {
+					player.teleport(MapInfo.getTeam1Spawn().location);
+				} else if (TeamManager.team2.contains(player)) {
+					player.teleport(MapInfo.getTeam2Spawn().location);
+				} else if (TeamManager.team3.contains(player)) {
+					player.teleport(MapInfo.getTeam3Spawn().location);
+				} else if (TeamManager.team4.contains(player)) {
+					player.teleport(MapInfo.getTeam4Spawn().location);
+				} else if (TeamManager.spectators.contains(player.getName())){
+					player.teleport(MapInfo.getSpectatorSpawn().location);
+				}
+			}
 			
 			
 		}
@@ -58,17 +72,7 @@ public class Countdowns {
 			for (Player player : Bukkit.getServer().getOnlinePlayers()) {
 				Loadout.giveLoadout(player);
 				TitleAPI.sendTitle(player, 5, 35, 5, "", "" + ChatColor.RED + ChatColor.BOLD + ChatColor.UNDERLINE + "The match has begun!");
-				if (TeamManager.team1.contains(player)) {
-					player.teleport(MapInfo.getTeam1Spawn().location);
-				} else if (TeamManager.team2.contains(player)) {
-					player.teleport(MapInfo.getTeam2Spawn().location);
-				} else if (TeamManager.team3.contains(player)) {
-					player.teleport(MapInfo.getTeam3Spawn().location);
-				} else if (TeamManager.team4.contains(player)) {
-					player.teleport(MapInfo.getTeam4Spawn().location);
-				} else if (TeamManager.spectators.contains(player.getName())){
-					player.setGameMode(GameMode.SPECTATOR);
-				}
+				
 			}
 			SoundUtils.broadcastSound(Sound.WITHER_SPAWN);
 			if (MapInfo.gameMode.equalsIgnoreCase("TDM") || MapInfo.gameMode.equalsIgnoreCase("Parkour") || MapInfo.gameMode.equalsIgnoreCase("CTF")) {
@@ -78,6 +82,7 @@ public class Countdowns {
 					}
 				}
 			} else if (MapInfo.gameMode.equalsIgnoreCase("DTM")) {
+					Scoreboard.DTMUpdate();
 					for (Player player : Bukkit.getOnlinePlayers()) {
 						if (!TeamManager.spectators.contains(player.getName())) {
 							player.setGameMode(GameMode.SURVIVAL);

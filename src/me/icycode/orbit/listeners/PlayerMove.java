@@ -25,6 +25,9 @@ public class PlayerMove implements Listener {
 				GameManager.teleportToLobby(player);
 			}
 		}
+		if (GameState.COUNTDOWN) {
+			e.setTo(e.getFrom());
+		}
 		
 		
 		//Parkour

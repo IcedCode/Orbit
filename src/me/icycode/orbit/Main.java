@@ -27,6 +27,7 @@ import me.icycode.orbit.match.MapInfo;
 import me.icycode.orbit.match.RotationManager;
 import me.icycode.orbit.match.TeamManager;
 import me.icycode.orbit.sql.mysql.MySQL;
+import me.icycode.orbit.utils.ScoreboardWrapper;
 import me.icycode.orbit.utils.SoundUtils;
 import me.icycode.orbit.utils.Tab;
 import me.icycode.orbit.utils.chat.Announcement;
@@ -303,6 +304,12 @@ public class Main extends JavaPlugin {
 			player.sendMessage(ChatColor.DARK_AQUA + "---===[ " + ChatColor.AQUA + ChatColor.BOLD + MapInfo.mapName + ChatColor.DARK_AQUA + " ]===---");
 			player.sendMessage(ChatColor.DARK_AQUA + "Gamemode: " + ChatColor.AQUA + MapInfo.gameMode + " - " + GameInfo.getGameInfo());
 			player.sendMessage(ChatColor.DARK_AQUA + "Creators: " + ChatColor.AQUA + MapInfo.creators);
+			ScoreboardWrapper sc_wrapper = new ScoreboardWrapper(ChatColor.DARK_RED + "Custom Title");
+	        sc_wrapper.addLine("new line");
+	        sc_wrapper.addLine("new line"); // NO ERRORS
+	        sc_wrapper.addBlankSpace();
+	        sc_wrapper.addLine("another line");
+	        player.setScoreboard(sc_wrapper.getScoreboard());
 		}
 		
 		//LEAVE

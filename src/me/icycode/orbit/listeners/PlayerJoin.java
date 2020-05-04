@@ -6,6 +6,7 @@ import me.icycode.orbit.match.GameManager;
 import me.icycode.orbit.match.GameState;
 import me.icycode.orbit.match.MapInfo;
 import me.icycode.orbit.match.TeamManager;
+import me.icycode.orbit.utils.Scoreboard;
 import me.icycode.orbit.utils.player.Inventory;
 
 import org.bukkit.ChatColor;
@@ -46,6 +47,7 @@ public class PlayerJoin implements Listener {
 			TeamManager.spectators.add(player.getName());
 			player.teleport(MapInfo.getSpectatorSpawn().location);
 		}
+		Scoreboard.DTMUpdate();
 		
 		if (Main.playersOnline >= 2) {
 			
