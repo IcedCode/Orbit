@@ -48,20 +48,12 @@ public class TeamManager {
 			team1.addPlayer(player);
 			player.sendMessage(ChatColor.GRAY + "You have joined " + team1.getColoredName());
 		} else if (teams == 2) {
-			teamSorter = 0;
-			switch (Integer.valueOf(teamSorter)) {
-			case 0:
-				team1.addPlayer(player);
-				teamSorter += 1;
-				player.sendMessage(ChatColor.GRAY + "You have joined " + team1.getColoredName());
-				break;
-			case 1:
+			if  (team2.getSize() < team1.getSize()) {
 				team2.addPlayer(player);
-				teamSorter -= 1;
 				player.sendMessage(ChatColor.GRAY + "You have joined " + team2.getColoredName());
-				break;
-			default:
-				break;
+			} else {
+				team1.addPlayer(player);
+				player.sendMessage(ChatColor.GRAY + "You have joined " + team1.getColoredName());
 			}
 		} else if (teams == 3) {
 			teamSorter = 0;
@@ -122,19 +114,12 @@ public class TeamManager {
 		} else if (teams == 2) {
 			teamSorter = 0;
 			for (Player player : Bukkit.getOnlinePlayers()) {
-				switch (Integer.valueOf(teamSorter)) {
-				case 0:
-					team1.addPlayer(player);
-					teamSorter = 1;
-					player.sendMessage(ChatColor.GRAY + "You have joined " + team1.getColoredName());
-					break;
-				case 1:
+				if  (team2.getSize() < team1.getSize()) {
 					team2.addPlayer(player);
-					teamSorter = 0;
 					player.sendMessage(ChatColor.GRAY + "You have joined " + team2.getColoredName());
-					break;
-				default:
-					break;
+				} else {
+					team1.addPlayer(player);
+					player.sendMessage(ChatColor.GRAY + "You have joined " + team1.getColoredName());
 				}
 			}
 		} else if (teams == 3) {

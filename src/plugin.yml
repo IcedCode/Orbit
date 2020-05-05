@@ -1,7 +1,7 @@
 name: Orbit
 version: 0.1
 main: me.icycode.orbit.Main
-description: Fenner Game Manager
+description: A PVP Game Manager by IcyCode
 commands:
    start:
      usage: /<command>
@@ -61,18 +61,18 @@ permissions:
       description: Moderator Permissions
       default: op
       children:
-         core.trainee: true
+         orbit.trainee: true
    orbit.manager:
       description: Manager Permissions
       default: op
       children:
-         core.mod: true
-         core.mapdev: true
+         orbit.mod: true
+         orbit.mapdev: true
    orbit.admin:
       description: Administrator Permissions
       default: op
       children:
-         core.manager: true
+         orbit.manager: true
    orbit.gold:
       description: Gold Permissions
       default: op
@@ -80,9 +80,9 @@ permissions:
       description: Emerald Permissions
       default: op
       children:
-         core.gold: true
+         orbit.gold: true
    orbit.diamond:
       description: Diamond Permissions
       default: op
       children:
-         core.emerald: true
+         orbit.emerald: true

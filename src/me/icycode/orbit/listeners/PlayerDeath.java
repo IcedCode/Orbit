@@ -45,7 +45,7 @@ public class PlayerDeath implements Listener{
 			Player killer = e.getEntity().getKiller();
 			String killerName = e.getEntity().getKiller().getDisplayName();
 			e.setDeathMessage(ChatColor.translateAlternateColorCodes('&', TeamManager.getPlayerTeamColor(player) + player.getDisplayName() + ChatColor.GRAY + " was slain by " + TeamManager.getPlayerTeamColor(killer) + killerName + ChatColor.GRAY + "."));
-			Scoreboard.TDMUpdate();
+			
 			
 			 
 			if (killer != player) {
@@ -66,6 +66,7 @@ public class PlayerDeath implements Listener{
 				killer.sendMessage(ChatColor.AQUA + "" + ChatColor.ITALIC + " +2 XP " + ChatColor.GOLD + ChatColor.BOLD + Chatter.RightArrow() + ChatColor.GREEN + ChatColor.ITALIC + " Killed " + ChatColor.DARK_GREEN + player.getDisplayName());
 				killer.getWorld().playSound(player.getLocation(), Sound.LEVEL_UP , 1, 1);
 			}
+			Scoreboard.TDMUpdate();
 			
 			
 			

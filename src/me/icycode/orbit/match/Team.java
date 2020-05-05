@@ -42,6 +42,10 @@ public class Team {
 		return players;
 	}
 	
+	public int getSize() {
+		return players.size();
+	}
+	
 	//Setters
 	public void setColor(String color) {
 		this.color = color;

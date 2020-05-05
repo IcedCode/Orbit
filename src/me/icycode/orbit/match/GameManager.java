@@ -25,7 +25,7 @@ public class GameManager {
 	public static void endGame(Player playerWinner) {
 		
 		
-		GameState.setIn_Lobby();
+		
 		
 		if (MapInfo.gameMode == "TDM") {
 			TDM.endGameLogic();
@@ -37,6 +37,7 @@ public class GameManager {
 			CTF.endGameLogic();
 		}
 		
+		GameState.setIn_Lobby();
 		TeamManager.resetTeams();
 		MapInfo.resetInfo();
 		
@@ -52,7 +53,8 @@ public class GameManager {
 		
 		SoundUtils.broadcastSound(Sound.WITHER_DEATH);
 		
-
+		RotationManager.setNextMap();
+		Scoreboard.LobbyUpdate();
 		
 		if (Main.playersOnline >= 2) {
 			GameState.setStarting();
@@ -61,8 +63,7 @@ public class GameManager {
 			GameState.setStarting();
 		}
 		
-		RotationManager.setNextMap();
-		Scoreboard.LobbyUpdate();
+		
 	}
 	
 	public static void teleportSpawn(Player player) {

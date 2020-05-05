@@ -1,5 +1,12 @@
 package me.icycode.orbit.listeners;
 
+import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
+
 import me.icycode.orbit.GamePlayer;
 import me.icycode.orbit.Main;
 import me.icycode.orbit.match.GameManager;
@@ -8,14 +15,6 @@ import me.icycode.orbit.match.MapInfo;
 import me.icycode.orbit.match.TeamManager;
 import me.icycode.orbit.utils.Scoreboard;
 import me.icycode.orbit.utils.player.Inventory;
-
-import org.bukkit.ChatColor;
-import org.bukkit.GameMode;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
-
 import ru.tehkode.permissions.bukkit.PermissionsEx;
 
 public class PlayerJoin implements Listener {
@@ -60,6 +59,8 @@ public class PlayerJoin implements Listener {
 				GameState.setStarting();
 			}
 		}
+		
+		
 	}
 
 }
