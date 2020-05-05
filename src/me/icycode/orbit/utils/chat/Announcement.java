@@ -11,7 +11,7 @@ public class Announcement {
 	
 	public static void broadcast() {
 		if (counter == 0) {
-			Bukkit.getServer().broadcastMessage(Chatter.Tip() + ChatColor.YELLOW + "This game is still under development. Report bugs at https://github.com/Fluenza-Network/Issues/issues");
+			Bukkit.getServer().broadcastMessage(Chatter.Tip() + ChatColor.YELLOW + "This game is still under development. Report bugs at https://github.com/Celestial-Network/Issues/issues");
 			counter++;
 		} else if (counter == 1) {
 			Bukkit.getServer().broadcastMessage(Chatter.Tip() + ChatColor.RED + "Visit our website at (Address here)");

@@ -28,30 +28,14 @@ public class Countdowns {
 			SoundUtils.broadcastSound(Sound.NOTE_PLING);
 		} else if (time == 0) {
 			
-			for (Player player : Bukkit.getOnlinePlayers()) {
-				if (TeamManager.team1.contains(player)) {
-					player.teleport(MapInfo.getSpectatorSpawn().location);
-				}
-				player.setGameMode(GameMode.SPECTATOR);
-				
-			}
 			SoundUtils.broadcastSound(Sound.NOTE_BASS);
 			GameState.setCountdown();
 			Main.gameCountdown = 8; //Allows time for tp for slow clients (+3 secs)
 			Scoreboard.DTMUpdate();
 			Scoreboard.TDMUpdate();
 			for (Player player : Bukkit.getOnlinePlayers()) {
-				if (TeamManager.team1.contains(player)) {
-					player.teleport(MapInfo.getTeam1Spawn().location);
-				} else if (TeamManager.team2.contains(player)) {
-					player.teleport(MapInfo.getTeam2Spawn().location);
-				} else if (TeamManager.team3.contains(player)) {
-					player.teleport(MapInfo.getTeam3Spawn().location);
-				} else if (TeamManager.team4.contains(player)) {
-					player.teleport(MapInfo.getTeam4Spawn().location);
-				} else if (TeamManager.spectators.contains(player.getName())){
-					player.teleport(MapInfo.getSpectatorSpawn().location);
-				}
+				player.setGameMode(GameMode.SPECTATOR);
+				GameManager.teleportSpawn(player);
 			}
 			
 			
@@ -78,10 +62,10 @@ public class Countdowns {
 				
 			}
 			SoundUtils.broadcastSound(Sound.WITHER_SPAWN);
-			if (MapInfo.gameMode.equalsIgnoreCase("TDM") || MapInfo.gameMode.equalsIgnoreCase("Parkour") || MapInfo.gameMode.equalsIgnoreCase("CTF")) {
+			if (MapInfo.gameMode.equalsIgnoreCase("TDM") || MapInfo.gameMode.equalsIgnoreCase("Parkour") || MapInfo.gameMode.equalsIgnoreCase("FFA")) {
 				for (Player player : Bukkit.getOnlinePlayers()) {
 					if (!TeamManager.spectators.contains(player.getName())) {
-						player.setGameMode(GameMode.ADVENTURE);
+						player.setGameMode(GameMode.SURVIVAL);
 					}
 				}
 			} else if (MapInfo.gameMode.equalsIgnoreCase("DTM")) {
@@ -92,7 +76,7 @@ public class Countdowns {
 						}
 					}
 				}
-				if (MapInfo.gameMode.equalsIgnoreCase("TDM")) {
+				if (MapInfo.gameMode.equalsIgnoreCase("TDM") || MapInfo.gameMode.equalsIgnoreCase("FFA")) {
 					Main.gameTime = 60 * 2;
 				}
 				
@@ -122,7 +106,7 @@ public class Countdowns {
 			Bukkit.getServer().broadcastMessage(ChatColor.AQUA + "There is " + ChatColor.DARK_AQUA + Time + ChatColor.AQUA + " second remaining.");
 			SoundUtils.broadcastSound(Sound.CLICK);
 		} else if (Time == 0) {
-			GameManager.endGame(null);
+			GameManager.endGame(null, null);
 		}
 	}
 	

@@ -21,16 +21,14 @@ import me.icycode.orbit.listeners.PlayerRespawn;
 import me.icycode.orbit.listeners.WeatherChange;
 import me.icycode.orbit.match.Countdowns;
 import me.icycode.orbit.match.GameInfo;
+import me.icycode.orbit.match.GameManager;
 import me.icycode.orbit.match.GameState;
 import me.icycode.orbit.match.Loadout;
 import me.icycode.orbit.match.MapInfo;
 import me.icycode.orbit.match.RotationManager;
 import me.icycode.orbit.match.TeamManager;
 import me.icycode.orbit.sql.mysql.MySQL;
-import me.icycode.orbit.utils.Scoreboard;
-import me.icycode.orbit.utils.ScoreboardWrapper;
 import me.icycode.orbit.utils.SoundUtils;
-import me.icycode.orbit.utils.Tab;
 import me.icycode.orbit.utils.chat.Announcement;
 import me.icycode.orbit.utils.chat.Chatter;
 
@@ -117,18 +115,17 @@ public class Main extends JavaPlugin {
 		//RotationManager.rotation = (ArrayList<String>) getConfig().getStringList("rotation");
 		
 		RotationManager.addMap("Tumbleweed");
-		RotationManager.addMap("Tumbleweed");
+		RotationManager.addMap("Arbaro");
+		RotationManager.addMap("Kingdom");
 		RotationManager.addMap("Quintlet");
 		RotationManager.addMap("Halcyon");
+		RotationManager.addMap("Island Hopper");
 		RotationManager.addMap("Senex 1");
 		RotationManager.addMap("Tumbleweed");
-		RotationManager.addMap("Island Hopper");
-		RotationManager.addMap("Tumbleweed");
-		RotationManager.addMap("8 Bit");
-		RotationManager.addMap("Oasis");
-		RotationManager.addMap("Tumbleweed");
-		RotationManager.addMap("Monkeysun");
+		RotationManager.addMap("Quintlet");
 		RotationManager.addMap("Triax");
+		RotationManager.addMap("Tumbleweed");
+		
 		
 		
 		
@@ -289,17 +286,7 @@ public class Main extends JavaPlugin {
 			TeamManager.assignPlayerTeam(MapInfo.teams, player);
 			Loadout.giveLoadout(player);
 			player.setGameMode(GameMode.SURVIVAL);
-			if (TeamManager.team1.contains(player)) {
-				player.teleport(MapInfo.team1Spawn.location);
-			} else if (TeamManager.team2.contains(player)) {
-				player.teleport(MapInfo.team2Spawn.location);
-			} else if (TeamManager.team3.contains(player)) {
-				player.teleport(MapInfo.team3Spawn.location);
-			} else if (TeamManager.team4.contains(player)) {
-				player.teleport(MapInfo.team4Spawn.location);
-			} else {
-				player.sendMessage(ChatColor.DARK_RED + "Severe error CODE 2. " + ChatColor.RED + "Please contact an administrator.");
-			}
+			GameManager.teleportSpawn(player);
 		}
 		
 		//MAP

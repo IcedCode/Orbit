@@ -55,12 +55,12 @@ public class RotationManager {
 			TeamManager.team1.setName("Cyan");
 			TeamManager.team1.setColor("&3");
 			Spawn team1Spawn = new Spawn(MapInfo.world, 50.5, 66, 0.5, 90, 0);
-			MapInfo.setTeam1Spawn(team1Spawn);
+			MapInfo.team1Spawns.add(team1Spawn);
 			
 			TeamManager.team2.setName("Lime");
 			TeamManager.team2.setColor("&a");
 			Spawn team2Spawn = new Spawn(MapInfo.world, -51.5, 66, 0.5, -90, 0);
-			MapInfo.setTeam2Spawn(team2Spawn);
+			MapInfo.team2Spawns.add(team2Spawn);
 			
 		} 
 		else if (currentMap == "Triax") {
@@ -80,12 +80,12 @@ public class RotationManager {
 			TeamManager.team1.setName("Orange");
 			TeamManager.team1.setColor("&6");
 			Spawn team1Spawn = new Spawn(MapInfo.world, -4.5, 72, -148.5 ,0 ,0);
-			MapInfo.setTeam1Spawn(team1Spawn);
+			MapInfo.team1Spawns.add(team1Spawn);
 			
 			TeamManager.team2.setName("Purple");
 			TeamManager.team2.setColor("&5");
 			Spawn team2Spawn = new Spawn(MapInfo.world, -4.5, 72, -3.5, 180, 0);
-			MapInfo.setTeam2Spawn(team2Spawn);
+			MapInfo.team2Spawns.add(team2Spawn);
 			
 
 			
@@ -105,12 +105,12 @@ public class RotationManager {
 			TeamManager.team1.setName("Red");
 			TeamManager.team1.setColor("&4");
 			Spawn Team1Spawn = new Spawn(MapInfo.world, -20, 5, -21, 180, 0);
-			MapInfo.setTeam1Spawn(Team1Spawn);
+			MapInfo.team1Spawns.add(Team1Spawn);
 			
 			TeamManager.team2.setName("Blue");
 			TeamManager.team2.setColor("&9");
 			Spawn team2Spawn = new Spawn(MapInfo.world, -4.5, 5, 25.5, 90, 0);
-			MapInfo.setTeam2Spawn(team2Spawn);
+			MapInfo.team2Spawns.add(team2Spawn);
 			
 		} else if (currentMap == "Island Hopper") {
 			
@@ -127,7 +127,7 @@ public class RotationManager {
 			TeamManager.team1.setName("Players");
 			TeamManager.team1.setColor("&6");
 			Spawn team1Spawn = new Spawn(MapInfo.world, -0.5, 67, -3.5, 0, 0);
-			MapInfo.setTeam1Spawn(team1Spawn);
+			MapInfo.team1Spawns.add(team1Spawn);
 			
 			Location point1 = new Location(MapInfo.world, -85, 117, 38);
 			Location point2 = new Location(MapInfo.world, -79, 121, 33);
@@ -148,12 +148,12 @@ public class RotationManager {
 			TeamManager.team1.setName("Red Team");
 			TeamManager.team1.setColor("&c");
 			Spawn team1Spawn = new Spawn(MapInfo.world, -133, 81, 21, -90, 0);
-			MapInfo.setTeam1Spawn(team1Spawn);
+			MapInfo.team1Spawns.add(team1Spawn);
 			
 			TeamManager.team2.setName("Blue Team");
 			TeamManager.team2.setColor("&9");
 			Spawn team2Spawn = new Spawn(MapInfo.world, 0, 81, 34, 90, 0);
-			MapInfo.setTeam2Spawn(team2Spawn);
+			MapInfo.team2Spawns.add(team2Spawn);
 			
 			
 		} else if (currentMap == "Melted Canada CTF") {
@@ -170,7 +170,7 @@ public class RotationManager {
 			TeamManager.team1.setName("Red Team");
 			TeamManager.team1.setColor("&c");
 			Spawn team1Spawn = new Spawn(MapInfo.world, -59, 51, -39, -90, 0);
-			MapInfo.setTeam1Spawn(team1Spawn);
+			MapInfo.team1Spawns.add(team1Spawn);
 			Location t1P1 = new Location(MapInfo.world, -48, 52, -20);
 			Location t1P2 = new Location(MapInfo.world, -50, 57, -18);
 			Region t1Flag = new Region(t1P1, t1P2);
@@ -179,7 +179,7 @@ public class RotationManager {
 			TeamManager.team2.setName("Blue Team");
 			TeamManager.team2.setColor("&9");
 			Spawn team2Spawn = new Spawn(MapInfo.world, 74, 51, -25, 90, 0);
-			MapInfo.setTeam2Spawn(team2Spawn);
+			MapInfo.team2Spawns.add(team2Spawn);
 			Location t2P1 = new Location(MapInfo.world, 62, 52, -45);
 			Location t2P2 = new Location(MapInfo.world, 64, 57, -47);
 			Region t2Flag = new Region(t2P1, t2P2);
@@ -200,22 +200,22 @@ public class RotationManager {
 			TeamManager.team1.setName("Red");
 			TeamManager.team1.setColor("&c");
 			Spawn team1Spawn = new Spawn(MapInfo.world, -15.5, 62, 16.5, -135, 0);
-			MapInfo.setTeam1Spawn(team1Spawn);
+			MapInfo.team1Spawns.add(team1Spawn);
 			
 			TeamManager.team2.setName("Green");
 			TeamManager.team2.setColor("&a");
 			Spawn team2Spawn = new Spawn(MapInfo.world, -15.5, 62, -15.5, -45, 0);
-			MapInfo.setTeam2Spawn(team2Spawn);
+			MapInfo.team2Spawns.add(team2Spawn);
 			
 			TeamManager.team3.setName("Yellow");
 			TeamManager.team3.setColor("&e");
 			Spawn team3Spawn = new Spawn(MapInfo.world, 16.5, 62, -15.5, 45, 0);
-			MapInfo.setTeam3Spawn(team3Spawn);
+			MapInfo.team3Spawns.add(team3Spawn);
 			
 			TeamManager.team4.setName("Blue");
 			TeamManager.team4.setColor("&9");
 			Spawn team4Spawn = new Spawn(MapInfo.world, 16.5, 62, 16.5, 135, 0);
-			MapInfo.setTeam4Spawn(team4Spawn);
+			MapInfo.team4Spawns.add(team4Spawn);
 			
 		} else if (currentMap == "8 Bit") {
 			MapInfo.mapName = "8 Bit";
@@ -231,7 +231,7 @@ public class RotationManager {
 			TeamManager.team1.setName("Players");
 			TeamManager.team1.setColor("&6");
 			Spawn team1Spawn = new Spawn(MapInfo.world, 249.5, 100, 311.5, 180, 0);
-			MapInfo.setTeam1Spawn(team1Spawn);
+			MapInfo.team1Spawns.add(team1Spawn);
 			
 			Location point1 = new Location(MapInfo.world, 161, 78, 272);
 			Location point2 = new Location(MapInfo.world, 155, 82, 275);
@@ -303,12 +303,12 @@ public class RotationManager {
 			TeamManager.team1.setName("Red");
 			TeamManager.team1.setColor("&4");
 			Spawn team1Spawn = new Spawn(MapInfo.world, 67.5, 60, 0.5, 90, 0);
-			MapInfo.setTeam1Spawn(team1Spawn);
+			MapInfo.team1Spawns.add(team1Spawn);
 			
 			TeamManager.team2.setName("Blue");
 			TeamManager.team2.setColor("&9");
 			Spawn team2Spawn = new Spawn(MapInfo.world, -64.5, 60, 0.5, -90, 0);
-			MapInfo.setTeam2Spawn(team2Spawn);
+			MapInfo.team2Spawns.add(team2Spawn);
 			
 		} else if (currentMap == "Senex 1") {
 			MapInfo.mapName = "Senex 1";
@@ -324,7 +324,7 @@ public class RotationManager {
 			TeamManager.team1.setName("Lime");
 			TeamManager.team1.setColor("&a");
 			Spawn team1Spawn = new Spawn(MapInfo.world, 35, 20, -743, -90, 0);
-			MapInfo.setTeam1Spawn(team1Spawn);
+			MapInfo.team1Spawns.add(team1Spawn);
 			Monument limeLeft = new Monument(new Location(MapInfo.world, 176, 23, -755), TeamManager.team1, "Left");
 			DTM.monuments.add(limeLeft);
 			Monument limeRight = new Monument(new Location(MapInfo.world, 176, 23, -733), TeamManager.team1, "Right");
@@ -335,7 +335,7 @@ public class RotationManager {
 			TeamManager.team2.setName("Cyan");
 			TeamManager.team2.setColor("&3");
 			Spawn team2Spawn = new Spawn(MapInfo.world, 129, 20, -743, 90, 0);
-			MapInfo.setTeam2Spawn(team2Spawn);
+			MapInfo.team2Spawns.add(team2Spawn);
 			Monument cyanLeft = new Monument(new Location(MapInfo.world, -12, 23, -733), TeamManager.team2, "Left");
 			DTM.monuments.add(cyanLeft);
 			Monument cyanRight = new Monument(new Location(MapInfo.world, -12, 23, -755), TeamManager.team2, "Right");
@@ -358,7 +358,7 @@ public class RotationManager {
 			TeamManager.team1.setName("Purple");
 			TeamManager.team1.setColor("&5");
 			Spawn team1Spawn = new Spawn(MapInfo.world, 14, 75, -871, 0, 0);
-			MapInfo.setTeam1Spawn(team1Spawn);
+			MapInfo.team1Spawns.add(team1Spawn);
 			Monument purpleLeft = new Monument(new Location(MapInfo.world, 41, 74, -773), TeamManager.team1, "Left");
 			DTM.monuments.add(purpleLeft);
 			Monument purpleRight = new Monument(new Location(MapInfo.world, -13, 74, -773), TeamManager.team1, "Right");
@@ -369,7 +369,7 @@ public class RotationManager {
 			TeamManager.team2.setName("Red");
 			TeamManager.team2.setColor("&4");
 			Spawn team2Spawn = new Spawn(MapInfo.world, 14, 75, -761, -180, 0);
-			MapInfo.setTeam2Spawn(team2Spawn);
+			MapInfo.team2Spawns.add(team2Spawn);
 			Monument redLeft = new Monument(new Location(MapInfo.world, -13, 74, -861), TeamManager.team2, "Left");
 			DTM.monuments.add(redLeft);
 			Monument redRight = new Monument(new Location(MapInfo.world, 41, 74, -861), TeamManager.team2, "Right");
@@ -392,7 +392,7 @@ public class RotationManager {
 			TeamManager.team1.setName("Purple");
 			TeamManager.team1.setColor("&5");
 			Spawn team1Spawn = new Spawn(MapInfo.world, 0.5, 72, 145, 180, 0);
-			MapInfo.setTeam1Spawn(team1Spawn);
+			MapInfo.team1Spawns.add(team1Spawn);
 			Monument purpleFrontLeft = new Monument(new Location(MapInfo.world, -37, 74, 0), TeamManager.team1, "Front Left");
 			DTM.monuments.add(purpleFrontLeft);
 			Monument purpleFrontRight = new Monument(new Location(MapInfo.world, 37, 74, 0), TeamManager.team1, "Front Right");
@@ -411,7 +411,7 @@ public class RotationManager {
 			TeamManager.team2.setName("Cyan");
 			TeamManager.team2.setColor("&3");
 			Spawn team2Spawn = new Spawn(MapInfo.world, 0.5, 72, 0.5, 0, 0);
-			MapInfo.setTeam2Spawn(team2Spawn);
+			MapInfo.team2Spawns.add(team2Spawn);
 			Monument cyanFrontLeft = new Monument(new Location(MapInfo.world, 37, 74, 146), TeamManager.team2, "Front Left");
 			DTM.monuments.add(cyanFrontLeft);
 			Monument cyanFrontRight = new Monument(new Location(MapInfo.world, -37, 74, 146), TeamManager.team2, "Front Right");
@@ -428,6 +428,64 @@ public class RotationManager {
 			MapInfo.protectedZones.add(cyanWalk);
 			
 			DTM.objectives = 5;
+		} else if (currentMap == "Kingdom") {
+			MapInfo.mapName = "Kingdom";
+			MapInfo.gameMode = "DTM";
+			MapInfo.creators = "IcyCode, EricV4 & DefeaTheCookie";
+			MapInfo.version = "1.0";
+			MapInfo.worldName = "Kingdom";
+			MapInfo.teams = 2;
+			
+			Spawn spectatorSpawn = new Spawn(MapInfo.world, 109.5, 132, -71.6, -90, 0);
+			MapInfo.setSpectatorSpawn(spectatorSpawn);
+			
+			TeamManager.team1.setName("Red");
+			TeamManager.team1.setColor("&4");
+			Spawn team1Spawn = new Spawn(MapInfo.world, -0.5, 65, -148.5, 0, 0);
+			MapInfo.team1Spawns.add(team1Spawn);
+			Monument team1Left = new Monument(new Location(MapInfo.world, 46, 83, -17), TeamManager.team1, "Left");
+			DTM.monuments.add(team1Left);
+			Monument team1Right = new Monument(new Location(MapInfo.world, -48, 83, -17), TeamManager.team1, "Right");
+			DTM.monuments.add(team1Right);
+			Region redSpawn = new Region(currentMap, -7, 56, -158, 5, 69, -115);
+			MapInfo.protectedZones.add(redSpawn);
+			
+			TeamManager.team2.setName("Blue");
+			TeamManager.team2.setColor("&9");
+			Spawn team2Spawn = new Spawn(MapInfo.world, -0.5, 65, 5.5, -180, 0);
+			MapInfo.team2Spawns.add(team2Spawn);
+			Monument team2Left = new Monument(new Location(MapInfo.world, -48, 83, -127), TeamManager.team2, "Left");
+			DTM.monuments.add(team2Left);
+			Monument team2Right = new Monument(new Location(MapInfo.world, 46, 83, -127), TeamManager.team2, "Right");
+			DTM.monuments.add(team2Right);
+			Region blueSpawn = new Region(currentMap, 6, 56, 15, -8, 69, -29);
+			MapInfo.protectedZones.add(blueSpawn);
+			
+			DTM.objectives = 2;
+		} else if (currentMap == "Arbaro") {
+			MapInfo.mapName = "Arbaro";
+			MapInfo.gameMode = "FFA";
+			MapInfo.creators = "IcyCode & The_Bad_1";
+			MapInfo.version = "1.0";
+			MapInfo.worldName = "Arbaro";
+			MapInfo.teams = 1;
+			
+			Spawn spectatorSpawn = new Spawn(MapInfo.world, 1, 120, 0, -90, 0);
+			MapInfo.setSpectatorSpawn(spectatorSpawn);
+			
+			TeamManager.team1.setName("Players");
+			TeamManager.team1.setColor("&6");
+			Spawn spawn1 = new Spawn(MapInfo.world, -54, 64, 2, 90, 0);
+			Spawn spawn2 = new Spawn(MapInfo.world, 2, 64, 51, -180, 0);
+			Spawn spawn3 = new Spawn(MapInfo.world, 50, 64, 2, 90, 0);
+			Spawn spawn4 = new Spawn(MapInfo.world, -2, 64, -51, 90, 0);
+			Spawn spawn5 = new Spawn(MapInfo.world, -24, 86, -28, 0, 0);
+			
+			MapInfo.team1Spawns.add(spawn1);
+			MapInfo.team1Spawns.add(spawn2);
+			MapInfo.team1Spawns.add(spawn3);
+			MapInfo.team1Spawns.add(spawn4);
+			MapInfo.team1Spawns.add(spawn5);
 		}
 		
 		

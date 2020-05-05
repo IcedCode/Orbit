@@ -33,7 +33,7 @@ public class CTF {
 	
 	public static void endGameCheck() {
 		if (team1Captures == 3 || team2Captures == 3) {
-			GameManager.endGame(null);
+			GameManager.endGame(null, null);
 		}
 	}
 	
