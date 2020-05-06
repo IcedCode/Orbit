@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import org.bukkit.World;
 
 import me.icycode.orbit.match.gamemodes.DTM;
-import me.icycode.orbit.module.Monument;
 import me.icycode.orbit.module.Region;
 import me.icycode.orbit.module.Spawn;
 
@@ -26,10 +25,10 @@ public class MapInfo {
 	
 	public static Spawn spectatorSpawn;
 	
-	public static Spawn team1Spawn;
-	public static Spawn team2Spawn;
-	public static Spawn team3Spawn;
-	public static Spawn team4Spawn;
+	public static ArrayList<Spawn> team1Spawns = new ArrayList<Spawn>();
+	public static ArrayList<Spawn> team2Spawns = new ArrayList<Spawn>();
+	public static ArrayList<Spawn> team3Spawns = new ArrayList<Spawn>();
+	public static ArrayList<Spawn> team4Spawns = new ArrayList<Spawn>();
 	
 	public static ArrayList<Region> protectedZones = new ArrayList<Region>();
 
@@ -54,10 +53,10 @@ public class MapInfo {
 		
 		spectatorSpawn = null;
 		
-		team1Spawn = null;
-		team2Spawn = null;
-		team3Spawn = null;
-		team4Spawn = null;
+		team1Spawns.clear();
+		team2Spawns.clear();
+		team3Spawns.clear();
+		team4Spawns.clear();
 		
 		protectedZones.clear();
 		
@@ -93,57 +92,6 @@ public class MapInfo {
 	public static void setSpectatorSpawn(Spawn spectatorSpawn) {
 		MapInfo.spectatorSpawn = spectatorSpawn;
 	}
-
-
-
-	public static Spawn getTeam1Spawn() {
-		return team1Spawn;
-	}
-
-
-
-	public static void setTeam1Spawn(Spawn team1Spawn) {
-		MapInfo.team1Spawn = team1Spawn;
-	}
-
-
-
-	public static Spawn getTeam2Spawn() {
-		return team2Spawn;
-	}
-
-
-
-	public static void setTeam2Spawn(Spawn team2Spawn) {
-		MapInfo.team2Spawn = team2Spawn;
-	}
-
-
-
-	public static Spawn getTeam3Spawn() {
-		return team3Spawn;
-	}
-
-
-
-	public static void setTeam3Spawn(Spawn team3Spawn) {
-		MapInfo.team3Spawn = team3Spawn;
-	}
-
-
-
-	public static Spawn getTeam4Spawn() {
-		return team4Spawn;
-	}
-
-
-
-	public static void setTeam4Spawn(Spawn team4Spawn) {
-		MapInfo.team4Spawn = team4Spawn;
-	}
-
-
-
 
 
 	public static Region getHill() {

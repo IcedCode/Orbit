@@ -2,6 +2,8 @@ package me.icycode.orbit.match;
 
 import me.icycode.orbit.Main;
 import me.icycode.orbit.match.gamemodes.CTF;
+import me.icycode.orbit.match.gamemodes.DTM;
+import me.icycode.orbit.match.gamemodes.FFA;
 import me.icycode.orbit.match.gamemodes.Parkour;
 import me.icycode.orbit.match.gamemodes.TDM;
 import me.icycode.orbit.utils.Scoreboard;
@@ -22,7 +24,7 @@ public class GameManager {
 		player.teleport(location);
 	}
 	
-	public static void endGame(Player playerWinner) {
+	public static void endGame(Player playerWinner, Team team) {
 		
 		
 		
@@ -35,6 +37,10 @@ public class GameManager {
 			Parkour.endGameLogic(playerWinner);
 		} else if (MapInfo.gameMode.equalsIgnoreCase("CTF")) {
 			CTF.endGameLogic();
+		} else if (MapInfo.gameMode.equalsIgnoreCase("DTM")) {
+			DTM.endGameLogic(team);
+		} else if (MapInfo.gameMode.equalsIgnoreCase("FFA")) {
+			FFA.endGameLogic();
 		}
 		
 		GameState.setIn_Lobby();
@@ -67,19 +73,7 @@ public class GameManager {
 	}
 	
 	public static void teleportSpawn(Player player) {
-		if (TeamManager.team1.contains(player)) {
-			player.teleport(MapInfo.getTeam1Spawn().location);
-			
-		} else if (TeamManager.team2.contains(player)) {
-			player.teleport(MapInfo.getTeam2Spawn().location);
-			
-		} else if (TeamManager.team3.contains(player)) {
-			player.teleport(MapInfo.getTeam3Spawn().location);
-			
-		} else if (TeamManager.team4.contains(player)) {
-			player.teleport(MapInfo.getTeam4Spawn().location);
-			
-		}
+		player.teleport(TeamManager.getSpawn(player));
 	}
 	
 	

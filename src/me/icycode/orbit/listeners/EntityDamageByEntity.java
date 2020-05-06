@@ -63,7 +63,7 @@ public class EntityDamageByEntity implements Listener {
 	        return;
 	    }
 	    
-	    if(MapInfo.gameMode == "FFA" || MapInfo.gameMode.equalsIgnoreCase("Parkour")) {
+	    if(MapInfo.gameMode.equalsIgnoreCase("FFA") || MapInfo.gameMode.equalsIgnoreCase("Parkour")) {
 	    	return;
 	    }
 	    

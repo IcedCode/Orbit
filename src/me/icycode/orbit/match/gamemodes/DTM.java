@@ -31,16 +31,16 @@ public class DTM {
 				objTeam2++;
 			}
 			if(objTeam1 == objectives) {
-				endGameLogic(TeamManager.team1);
+				GameManager.endGame(null , TeamManager.team1);
 			} else if(objTeam2 == objectives) {
-				endGameLogic(TeamManager.team2);
+				GameManager.endGame(null , TeamManager.team2);
 			}
 		}
 		
 	}
 	
 	public static void endGameLogic(Team team) {
-		GameManager.endGame(null);
+		
 		if (team == TeamManager.team1) {
 			//Team 1 Wins
 			
@@ -89,7 +89,7 @@ public class DTM {
 				}
 			}
 		}
-		
+		objectives = 100; //To override the checks occuring again error
 		
 	}
 }

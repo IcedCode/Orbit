@@ -62,6 +62,7 @@ public class PlayerDeath implements Listener{
 				
 				//XP Reward
 				GamePlayer gamePlayer = Main.onlinePlayers.get(killer);
+				gamePlayer.points++;
 				gamePlayer.addXp(2);
 				killer.sendMessage(ChatColor.AQUA + "" + ChatColor.ITALIC + " +2 XP " + ChatColor.GOLD + ChatColor.BOLD + Chatter.RightArrow() + ChatColor.GREEN + ChatColor.ITALIC + " Killed " + ChatColor.DARK_GREEN + player.getDisplayName());
 				killer.getWorld().playSound(player.getLocation(), Sound.LEVEL_UP , 1, 1);

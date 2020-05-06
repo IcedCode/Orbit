@@ -13,6 +13,8 @@ public class GameInfo {
 			return "Capture The Flag";
 		} else if (MapInfo.gameMode.equalsIgnoreCase("DTM")){
 			return "Destroy The Monument";
+		} else if (MapInfo.gameMode.equalsIgnoreCase("FFA")){
+			return "Free For All";
 		} else {
 			return "UNKNOWN";
 		}
@@ -25,6 +27,8 @@ public class GameInfo {
 			return "Capture the hill and get kills for points, first to 100 wins!";
 		} else if (MapInfo.gameMode.equalsIgnoreCase("dtm")) {
 			return "Destroy the opposing teams monuments to win!";
+		} else if (MapInfo.gameMode.equalsIgnoreCase("ffa")) {
+			return "Every man for themselves, get as many kills as possible in the time!";
 		} else return "UNKNOWN";
 	}
 	

@@ -16,6 +16,11 @@ public class TeamManager {
 	public static Team team2 = new Team();
 	public static Team team3 = new Team();
 	public static Team team4 = new Team();
+	
+	private static int team1SpawnCounter;
+	private static int team2SpawnCounter;
+	private static int team3SpawnCounter;
+	private static int team4SpawnCounter;
 
 	private static int teamSorter;
 	
@@ -25,7 +30,10 @@ public class TeamManager {
 		team3.reset();
 		team4.reset();
 		
-		
+		team1SpawnCounter = 0;
+		team2SpawnCounter = 0;
+		team3SpawnCounter = 0;
+		team4SpawnCounter = 0;
 	}
 	
 	public static String getPlayerTeamColor(Player player) {
@@ -176,20 +184,37 @@ public class TeamManager {
 		}
 	}
 	
+	/*This method returns the Location of spawn for a given player using a counter to cycle
+	 * between the different spawns for each team. This is especially useful in FFA where 1
+	 * team (team1) will have multiple spawns to cycle through.
+	 */
+	
 	public static Location getSpawn(Player player){
 		if (team1.contains(player)) {
-			return MapInfo.team1Spawn.location;
+			team1SpawnCounter++;
+			if(team1SpawnCounter >= MapInfo.team1Spawns.size()) 
+				team1SpawnCounter = 0;
+			return MapInfo.team1Spawns.get(team1SpawnCounter).location;
 		} else if (team2.contains(player)) {
-			return MapInfo.team2Spawn.location;
+			team2SpawnCounter++;
+			if(team2SpawnCounter >= MapInfo.team2Spawns.size()) 
+				team2SpawnCounter = 0;
+			return MapInfo.team2Spawns.get(team2SpawnCounter).location;
 		} else if (team3.contains(player)){
-			return MapInfo.team3Spawn.location;
+			team3SpawnCounter++;
+			if(team3SpawnCounter >= MapInfo.team3Spawns.size()) 
+				team3SpawnCounter = 0;
+			return MapInfo.team3Spawns.get(team3SpawnCounter).location;
 		} else if (team4.contains(player)) {
-			return MapInfo.team4Spawn.location;
+			team4SpawnCounter++;
+			if(team4SpawnCounter >= MapInfo.team4Spawns.size()) 
+				team4SpawnCounter = 0;
+			return MapInfo.team4Spawns.get(team4SpawnCounter).location;
+		} else if (spectators.contains(player.getName())){
+			return MapInfo.getSpectatorSpawn().location;
 		} else {
 			return null;
 		}
-		
-		
 	}
 
 }

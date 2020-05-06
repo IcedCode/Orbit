@@ -16,7 +16,7 @@ public class BlockPlace implements Listener{
 	
 	@EventHandler
 	public void onPlace(BlockPlaceEvent event) {
-		if (GameState.IN_LOBBY || GameState.STARTING || GameState.COUNTDOWN || /*MapInfo.gameMode == "TDM" ||*/ MapInfo.gameMode.equalsIgnoreCase("Parkour")) {
+		if (GameState.IN_LOBBY || GameState.STARTING || GameState.COUNTDOWN || /*MapInfo.gameMode == "TDM" ||*/ MapInfo.gameMode.equalsIgnoreCase("Parkour") || MapInfo.gameMode.equalsIgnoreCase("FFA")) {
             event.setCancelled(true);
         }
 		

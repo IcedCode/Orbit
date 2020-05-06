@@ -9,6 +9,7 @@ public class GamePlayer {
 	private Player player;
 	@Getter public int xp;
 	@Getter public int prestige;
+	@Getter public int points;
 	
 	public int getPrestige() {
 		return prestige;
@@ -22,6 +23,7 @@ public class GamePlayer {
 		this.player = player;
 		this.xp = 0; //TODO retrieve XP.
 		this.prestige = 0;
+		this.points = 0;
 	}
 	
 	public Player getPlayer() {

@@ -31,7 +31,7 @@ public class BlockBreak implements Listener{
 			event.setCancelled(true);
 		}
 		
-		if (GameState.IN_LOBBY || GameState.STARTING || GameState.COUNTDOWN /*|| MapInfo.gameMode == "TDM" */|| MapInfo.gameMode.equalsIgnoreCase("Parkour")) {
+		if (GameState.IN_LOBBY || GameState.STARTING || GameState.COUNTDOWN /*|| MapInfo.gameMode == "TDM" */|| MapInfo.gameMode.equalsIgnoreCase("Parkour") || MapInfo.gameMode.equalsIgnoreCase("ffa")) {
             event.setCancelled(true);
         }
 		
