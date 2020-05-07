@@ -68,7 +68,7 @@ public class Countdowns {
 						player.setGameMode(GameMode.SURVIVAL);
 					}
 				}
-			} else if (MapInfo.gameMode.equalsIgnoreCase("DTM")) {
+			} else if (MapInfo.gameMode.equalsIgnoreCase("DTM") || MapInfo.gameMode.equalsIgnoreCase("red alert")) {
 					Scoreboard.DTMUpdate();
 					for (Player player : Bukkit.getOnlinePlayers()) {
 						if (!TeamManager.spectators.contains(player.getName())) {

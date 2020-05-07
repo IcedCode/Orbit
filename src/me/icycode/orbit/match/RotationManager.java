@@ -9,7 +9,10 @@ import me.icycode.orbit.module.Region;
 import me.icycode.orbit.module.Spawn;
 
 import org.bukkit.Bukkit;
+import org.bukkit.DyeColor;
 import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
 
 public class RotationManager {
 	
@@ -486,6 +489,62 @@ public class RotationManager {
 			MapInfo.team1Spawns.add(spawn3);
 			MapInfo.team1Spawns.add(spawn4);
 			MapInfo.team1Spawns.add(spawn5);
+		}  else if (currentMap == "BerrylandMC") {
+			MapInfo.mapName = "BerrylandMC DTM";
+			MapInfo.gameMode = "DTM";
+			MapInfo.creators = "99250, ViceTechnicolour & Zintenka";
+			MapInfo.version = "1.0";
+			MapInfo.worldName = "berrylandmc";
+			MapInfo.teams = 2;
+			
+			Spawn spectatorSpawn = new Spawn(MapInfo.world, -52, 163, 1, 0, 0);
+			MapInfo.setSpectatorSpawn(spectatorSpawn);
+			
+			TeamManager.team1.setName("Red");
+			TeamManager.team1.setColor("&4");
+			Spawn team1Spawn = new Spawn(MapInfo.world, 19.5, 94, -87.5, 0, 0);
+			MapInfo.team1Spawns.add(team1Spawn);
+			Monument team1Left = new Monument(new Location(MapInfo.world, 18, 79, 52), TeamManager.team1, "A");
+			DTM.monuments.add(team1Left);
+			Monument team1Right = new Monument(new Location(MapInfo.world, 18, 79, 53), TeamManager.team1, "B");
+			DTM.monuments.add(team1Right);
+			Region redSpawn = new Region(currentMap, 2, 102, -93, 34, 83, -80);
+			MapInfo.protectedZones.add(redSpawn);
+			
+			TeamManager.team2.setName("Blue");
+			TeamManager.team2.setColor("&9");
+			Spawn team2Spawn = new Spawn(MapInfo.world, 18.5, 94, 100.5, -180, 0);
+			MapInfo.team2Spawns.add(team2Spawn);
+			Monument team2Left = new Monument(new Location(MapInfo.world, 18, 79, -40), TeamManager.team2, "A");
+			DTM.monuments.add(team2Left);
+			Monument team2Right = new Monument(new Location(MapInfo.world, 18, 79, -41), TeamManager.team2, "B");
+			DTM.monuments.add(team2Right);
+			Region blueSpawn = new Region(currentMap, 34, 102, 104, 2, 83, 92);
+			MapInfo.protectedZones.add(blueSpawn);
+			
+			DTM.objectives = 2;
+		} else if (currentMap == "Inferno") {
+			MapInfo.mapName = "Inferno";
+			MapInfo.gameMode = "Red Alert";
+			MapInfo.creators = "IcyCode";
+			MapInfo.version = "1.0";
+			MapInfo.worldName = "Inferno";
+			MapInfo.teams = 2;
+			
+			Spawn spectatorSpawn = new Spawn(MapInfo.world, -5, 90, 45, -180, 90);
+			MapInfo.setSpectatorSpawn(spectatorSpawn);
+			
+			TeamManager.team1.setName("Players");
+			TeamManager.team1.setColor("&6");
+			Spawn spawn1 = new Spawn(MapInfo.world, 5, 73, 58, -180, 0);
+			Spawn spawn2 = new Spawn(MapInfo.world, -8, 73, 44, -90, 0);
+			Spawn spawn3 = new Spawn(MapInfo.world, 5, 73, 31, 0, 0);
+			Spawn spawn4 = new Spawn(MapInfo.world, 18, 73, 44, 90, 0);
+			
+			MapInfo.team1Spawns.add(spawn1);
+			MapInfo.team1Spawns.add(spawn2);
+			MapInfo.team1Spawns.add(spawn3);
+			MapInfo.team1Spawns.add(spawn4);
 		}
 		
 		

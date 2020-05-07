@@ -4,10 +4,13 @@ import me.icycode.orbit.match.GameManager;
 import me.icycode.orbit.match.GameState;
 import me.icycode.orbit.match.MapInfo;
 import me.icycode.orbit.match.gamemodes.CTF;
+import me.icycode.orbit.match.gamemodes.RedAlert;
 import me.icycode.orbit.module.Region;
 
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.WeatherType;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -44,6 +47,16 @@ public class PlayerMove implements Listener {
 		
 		if (MapInfo.gameMode.equalsIgnoreCase("CTF")) {
 			CTF.flagCheck(player);
+		}
+		
+		if (MapInfo.gameMode.equalsIgnoreCase("red alert") && GameState.IN_GAME) {
+			Location l = player.getLocation();
+			Location l2 = new Location(l.getWorld(), l.getX(), l.getY() - 1, l.getZ());
+			Block block = l2.getBlock();
+			if (block.getType() != Material.AIR) {
+				RedAlert.addRed(block);
+			}
+				
 		}
 	}
 

@@ -50,6 +50,31 @@ public class TeamManager {
 		}
 	}
 	
+	
+	//Returns true if success, returns false if not.
+	public static boolean assignToTeam(Player player, String team) {
+		if(spectators.contains(player.getName())) {
+			spectators.remove(player.getName());
+		}
+		if (team.equalsIgnoreCase(team1.getName())) {
+			team1.addPlayer(player);
+			player.sendMessage(ChatColor.GRAY + "You have joined " + team1.getColoredName());
+			return true;
+		} else if (team.equalsIgnoreCase(team2.getName())) {
+			team2.addPlayer(player);
+			player.sendMessage(ChatColor.GRAY + "You have joined " + team2.getColoredName());
+			return true;
+		} else if (team.equalsIgnoreCase(team3.getName())) {
+			team3.addPlayer(player);
+			player.sendMessage(ChatColor.GRAY + "You have joined " + team3.getColoredName());
+			return true;
+		} else if (team.equalsIgnoreCase(team4.getName())) {
+			team4.addPlayer(player);
+			player.sendMessage(ChatColor.GRAY + "You have joined " + team4.getColoredName());
+			return true;
+		} else return false;
+	}
+	
 	public static void assignPlayerTeam(int teams, Player player) {
 		spectators.remove(player.getName());
 		if (teams == 1) {

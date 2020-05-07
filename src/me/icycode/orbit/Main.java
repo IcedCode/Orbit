@@ -27,6 +27,7 @@ import me.icycode.orbit.match.Loadout;
 import me.icycode.orbit.match.MapInfo;
 import me.icycode.orbit.match.RotationManager;
 import me.icycode.orbit.match.TeamManager;
+import me.icycode.orbit.match.gamemodes.RedAlert;
 import me.icycode.orbit.sql.mysql.MySQL;
 import me.icycode.orbit.utils.SoundUtils;
 import me.icycode.orbit.utils.chat.Announcement;
@@ -115,6 +116,8 @@ public class Main extends JavaPlugin {
 		//RotationManager.rotation = (ArrayList<String>) getConfig().getStringList("rotation");
 		
 		RotationManager.addMap("Tumbleweed");
+		RotationManager.addMap("Inferno");
+		RotationManager.addMap("BerrylandMC");
 		RotationManager.addMap("Arbaro");
 		RotationManager.addMap("Kingdom");
 		RotationManager.addMap("Quintlet");
@@ -172,6 +175,10 @@ public class Main extends JavaPlugin {
 						gameCountdown -= 1;
 						gameTime -= 1;
 						announceTime -= 1;
+						
+						if (MapInfo.gameMode.equalsIgnoreCase("Red Alert") && GameState.IN_GAME) {
+							RedAlert.addFall();
+						}
 						/**if (MapInfo.gameMode.equalsIgnoreCase("CTF")) {
 							if (CTF.team1FlagHolder != null) {
 								Player p = CTF.team1FlagHolder;
@@ -283,10 +290,23 @@ public class Main extends JavaPlugin {
 				player.sendMessage(Chatter.Warning() + ChatColor.RED + "You may not use this command at this time.");
 				return true;
 			}
-			TeamManager.assignPlayerTeam(MapInfo.teams, player);
-			Loadout.giveLoadout(player);
-			player.setGameMode(GameMode.SURVIVAL);
-			GameManager.teleportSpawn(player);
+			
+			if (args.length == 0) {
+				TeamManager.assignPlayerTeam(MapInfo.teams, player);
+				Loadout.giveLoadout(player);
+				player.setGameMode(GameMode.SURVIVAL);
+				GameManager.teleportSpawn(player);
+			} else {
+				boolean check = TeamManager.assignToTeam(player, args[0]);
+				if (check == false) {
+					player.sendMessage(Chatter.Warning() + ChatColor.RED + "Could not find the team " + args[0]);
+				} else {
+					Loadout.giveLoadout(player);
+					player.setGameMode(GameMode.SURVIVAL);
+					GameManager.teleportSpawn(player);
+				}
+			}
+			
 		}
 		
 		//MAP
@@ -607,7 +627,7 @@ public class Main extends JavaPlugin {
         			player.sendMessage(ChatColor.RED + "That player is not online.");
         		}
         		int amount = Integer.parseInt(args[1]);
-        		GamePlayer targetPlayer = onlinePlayers.get(player);
+        		GamePlayer targetPlayer = onlinePlayers.get(target);
         		targetPlayer.addXp(amount);
         		player.sendMessage(ChatColor.GREEN + "You have added " + amount + " XP to player " + targetPlayer.getPlayer().getDisplayName());
         		return true;
