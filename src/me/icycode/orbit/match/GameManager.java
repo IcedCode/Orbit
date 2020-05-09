@@ -2,6 +2,7 @@ package me.icycode.orbit.match;
 
 import me.icycode.orbit.Main;
 import me.icycode.orbit.match.gamemodes.CTF;
+import me.icycode.orbit.match.gamemodes.CTW;
 import me.icycode.orbit.match.gamemodes.DTM;
 import me.icycode.orbit.match.gamemodes.FFA;
 import me.icycode.orbit.match.gamemodes.Parkour;
@@ -41,6 +42,8 @@ public class GameManager {
 			DTM.endGameLogic(team);
 		} else if (MapInfo.gameMode.equalsIgnoreCase("FFA")) {
 			FFA.endGameLogic();
+		} else if (MapInfo.gameMode.equalsIgnoreCase("CTW")) {
+			CTW.endGameLogic(team);
 		}
 		
 		GameState.setIn_Lobby();

@@ -77,11 +77,22 @@ public class Countdowns {
 					}
 				}
 				if (MapInfo.gameMode.equalsIgnoreCase("TDM") || MapInfo.gameMode.equalsIgnoreCase("FFA")) {
-					Main.gameTime = 60 * 2;
+					Main.gameTime = 60 * 5;
 				}
 				
 				if (MapInfo.gameMode.equalsIgnoreCase("CTF")) {
 					CTF.resetInfo();
+				}
+				if (MapInfo.gameMode.equalsIgnoreCase("CTW")) {
+					CTF.resetInfo();
+				}
+				if (MapInfo.gameMode.equalsIgnoreCase("CTW")) {
+					Scoreboard.CTWUpdate();
+					for (Player player : Bukkit.getOnlinePlayers()) {
+						if (!TeamManager.spectators.contains(player.getName())) {
+							player.setGameMode(GameMode.SURVIVAL);
+						}
+					}
 				}
 			GameState.setIn_Game();
 		}

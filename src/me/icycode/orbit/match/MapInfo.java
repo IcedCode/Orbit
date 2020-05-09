@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import org.bukkit.World;
 
+import me.icycode.orbit.match.gamemodes.CTW;
 import me.icycode.orbit.match.gamemodes.DTM;
 import me.icycode.orbit.module.Region;
 import me.icycode.orbit.module.Spawn;
@@ -69,6 +70,9 @@ public class MapInfo {
 		
 		DTM.monuments.clear();
 		DTM.objectives = 0;
+		
+		CTW.wools.clear();
+		CTW.objectives = 0;
 	}
 	
 	public static World getWorld() {

@@ -30,6 +30,7 @@ import me.icycode.orbit.match.TeamManager;
 import me.icycode.orbit.match.gamemodes.RedAlert;
 import me.icycode.orbit.sql.mysql.MySQL;
 import me.icycode.orbit.utils.SoundUtils;
+import me.icycode.orbit.utils.Tab;
 import me.icycode.orbit.utils.chat.Announcement;
 import me.icycode.orbit.utils.chat.Chatter;
 
@@ -40,6 +41,7 @@ import org.bukkit.GameMode;
 import org.bukkit.Server;
 import org.bukkit.Sound;
 import org.bukkit.WorldCreator;
+import org.bukkit.block.Block;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -51,6 +53,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.connorlinfoot.titleapi.TitleAPI;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
+import com.keenant.tabbed.Tabbed;
 import com.sk89q.worldedit.bukkit.WorldEditPlugin;
 
 public class Main extends JavaPlugin {
@@ -68,9 +71,10 @@ public class Main extends JavaPlugin {
 	MySQL MySQL = new MySQL("198.20.114.182", "3306", "mc132549", "mc132549", "pass");
 	Connection c = null;
 	
+	public static Tabbed tabbed;
+	
 	@Override
 	public void onEnable() {
-		
 		
 		
 		
@@ -116,7 +120,10 @@ public class Main extends JavaPlugin {
 		//RotationManager.rotation = (ArrayList<String>) getConfig().getStringList("rotation");
 		
 		RotationManager.addMap("Tumbleweed");
-		RotationManager.addMap("Inferno");
+		RotationManager.addMap("Rendezvous Meadows");
+		RotationManager.addMap("Forgotten Mine");
+		RotationManager.addMap("Rendezvous");
+		RotationManager.addMap("Tumbleweed");
 		RotationManager.addMap("BerrylandMC");
 		RotationManager.addMap("Arbaro");
 		RotationManager.addMap("Kingdom");
@@ -130,8 +137,7 @@ public class Main extends JavaPlugin {
 		RotationManager.addMap("Tumbleweed");
 		
 		
-		
-		
+		Tabbed tabbed = new Tabbed(this);
 		
 		RotationManager.setNextMap();
 		
@@ -177,7 +183,10 @@ public class Main extends JavaPlugin {
 						announceTime -= 1;
 						
 						if (MapInfo.gameMode.equalsIgnoreCase("Red Alert") && GameState.IN_GAME) {
-							RedAlert.addFall();
+							for (Block block : RedAlert.red) {
+								RedAlert.addFall(block);
+							}
+							
 						}
 						/**if (MapInfo.gameMode.equalsIgnoreCase("CTF")) {
 							if (CTF.team1FlagHolder != null) {
@@ -299,6 +308,7 @@ public class Main extends JavaPlugin {
 			} else {
 				boolean check = TeamManager.assignToTeam(player, args[0]);
 				if (check == false) {
+					TeamManager.spectators.add(player.getName());
 					player.sendMessage(Chatter.Warning() + ChatColor.RED + "Could not find the team " + args[0]);
 				} else {
 					Loadout.giveLoadout(player);
@@ -314,6 +324,7 @@ public class Main extends JavaPlugin {
 			player.sendMessage(ChatColor.DARK_AQUA + "---===[ " + ChatColor.AQUA + ChatColor.BOLD + MapInfo.mapName + ChatColor.DARK_AQUA + " ]===---");
 			player.sendMessage(ChatColor.DARK_AQUA + "Gamemode: " + ChatColor.AQUA + MapInfo.gameMode + " - " + GameInfo.getGameInfo());
 			player.sendMessage(ChatColor.DARK_AQUA + "Creators: " + ChatColor.AQUA + MapInfo.creators);
+			Tab.update(player);
 		}
 		
 		//LEAVE

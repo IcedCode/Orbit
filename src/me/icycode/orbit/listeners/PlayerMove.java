@@ -3,12 +3,21 @@ package me.icycode.orbit.listeners;
 import me.icycode.orbit.match.GameManager;
 import me.icycode.orbit.match.GameState;
 import me.icycode.orbit.match.MapInfo;
+import me.icycode.orbit.match.TeamManager;
 import me.icycode.orbit.match.gamemodes.CTF;
+import me.icycode.orbit.match.gamemodes.CTW;
 import me.icycode.orbit.match.gamemodes.RedAlert;
 import me.icycode.orbit.module.Region;
+import me.icycode.orbit.module.WoolCap;
+import me.icycode.orbit.utils.Scoreboard;
+import me.icycode.orbit.utils.SoundUtils;
+import me.icycode.orbit.utils.chat.Chatter;
+import net.md_5.bungee.api.ChatColor;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.WeatherType;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -47,6 +56,27 @@ public class PlayerMove implements Listener {
 		
 		if (MapInfo.gameMode.equalsIgnoreCase("CTF")) {
 			CTF.flagCheck(player);
+		}
+		
+		//CTW Woolroom checks
+		if (MapInfo.gameMode.equalsIgnoreCase("ctw") && GameState.IN_GAME) {
+			for(int i = 0; i < CTW.wools.size() ; i++) {
+				 WoolCap wc = CTW.wools.get(i);
+				 Region r = wc.woolRoom;
+				 Location l = player.getLocation();
+				 if (!TeamManager.team1.contains(player) && wc.team == TeamManager.team1 || !TeamManager.team2.contains(player) && wc.team == TeamManager.team2) {
+					 if (r.getLowerX() < l.getX() 
+								&& r.getLowerY() < l.getY() 
+								&& r.getLowerZ() < l.getZ() 
+								&& r.getUpperX() > l.getX() 
+								&& r.getUpperY() > l.getY() 
+								&& r.getUpperZ() > l.getZ()){
+						 e.setTo(e.getFrom());
+						 player.sendMessage(Chatter.Warning() + ChatColor.RED + "You may not enter this wool room!");
+					 }
+				 }
+				 
+			 }
 		}
 		
 		if (MapInfo.gameMode.equalsIgnoreCase("red alert") && GameState.IN_GAME) {

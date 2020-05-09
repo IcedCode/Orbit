@@ -73,7 +73,7 @@ public class BlockBreak implements Listener{
 					Scoreboard.DTMUpdate();
 					Bukkit.getServer().broadcastMessage(ChatColor.GOLD + "" + ChatColor.BOLD + " > > > " + ChatColor.translateAlternateColorCodes('&', m.team.getColor() + event.getPlayer().getName() + " has destroyed the monument " + m.name + "!") + ChatColor.GOLD + ChatColor.BOLD + " < < <");
 					SoundUtils.broadcastSound(Sound.BLAZE_DEATH);
-					player.sendMessage(ChatColor.AQUA + " " + ChatColor.ITALIC + " +10 XP " + ChatColor.GOLD + Chatter.RightArrow() + ChatColor.GREEN + " You destroyed a monument!");
+					player.sendMessage(ChatColor.AQUA + " " + ChatColor.ITALIC + " +20 XP " + ChatColor.GOLD + Chatter.RightArrow() + ChatColor.GREEN + " You destroyed a monument!");
 					event.getPlayer().getWorld().playSound(event.getPlayer().getLocation(), Sound.LEVEL_UP, 1, 1);
 					gamePlayer.addXp(20);
 					DTM.monuments.set(i, m);

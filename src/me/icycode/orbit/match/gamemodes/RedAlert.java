@@ -10,8 +10,8 @@ import me.icycode.orbit.match.TeamManager;
 
 public class RedAlert {
 	
-	private static ArrayList<Block> red = new ArrayList<Block>();
-	private static ArrayList<Block> fall = new ArrayList<Block>();
+	public static ArrayList<Block> red = new ArrayList<Block>();
+	public static ArrayList<Block> fall = new ArrayList<Block>();
 	
 	public static void clear() {
 
@@ -36,14 +36,11 @@ public class RedAlert {
 	}
 	
 	@SuppressWarnings("deprecation")
-	public static void addFall() {
-		for(Block block : red) {
-			red.remove(block);
-			Byte blockData = 0x0;
-			block.getWorld().spawnFallingBlock(block.getLocation(), block.getType(), blockData);
-			block.setType(Material.AIR);
-			fall.add(block);
-		}
+	public static void addFall(Block block) {	
+		Byte blockData = 0x0;
+		block.getWorld().spawnFallingBlock(block.getLocation(), block.getType(), blockData);
+		block.setType(Material.AIR);
+		red.remove(block);
 	}
 	
 }

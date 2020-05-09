@@ -8,8 +8,10 @@ import me.icycode.orbit.Main;
 import me.icycode.orbit.match.GameState;
 import me.icycode.orbit.match.MapInfo;
 import me.icycode.orbit.match.TeamManager;
+import me.icycode.orbit.match.gamemodes.CTW;
 import me.icycode.orbit.match.gamemodes.DTM;
 import me.icycode.orbit.module.Monument;
+import me.icycode.orbit.module.WoolCap;
 
 public class Scoreboard {
 	
@@ -88,6 +90,48 @@ public class Scoreboard {
 	        	player.setScoreboard(board.getScoreboard());
 	        }
 		}
+	}
+	
+	public static void CTWUpdate() {
+		if(!MapInfo.gameMode.equalsIgnoreCase("ctw")) return;
+		if(GameState.IN_GAME || GameState.COUNTDOWN) {
+			ScoreboardWrapper board = new ScoreboardWrapper(ChatColor.GOLD + "" + ChatColor.BOLD + "CTW");
+	        board.addLine(ChatColor.BOLD + "" + TeamManager.team1.getColoredName());
+			for(int i = 0; i < CTW.wools.size() ; i++) {
+	        	WoolCap wool = CTW.wools.get(i);
+	        	if(wool.team == TeamManager.team1) {
+	        		String state;
+	        		if (wool.placed) {
+	        			state = ChatColor.GREEN + "✔";
+	        		} else if (wool.picked) {
+	        			state = ChatColor.GOLD + "-";
+	        		} else {
+	        			state = ChatColor.RED + "✖";
+	        		}
+	        		board.addLine(state + " " + ChatColor.translateAlternateColorCodes('&', TeamManager.team1.getColor() + wool.name));
+	        	}
+	        }
+	        board.addBlankSpace();
+	        board.addLine(ChatColor.BOLD + "" + TeamManager.team2.getColoredName());
+			for(int i = 0; i < CTW.wools.size() ; i++) {
+	        	WoolCap wool = CTW.wools.get(i);
+	        	if(wool.team == TeamManager.team2) {
+	        		String state;
+	        		if (wool.placed) {
+	        			state = ChatColor.GREEN + "✔";
+	        		} else if (wool.picked) {
+	        			state = ChatColor.GOLD + "-";
+	        		} else {
+	        			state = ChatColor.RED + "✖";
+	        		}
+	        		board.addLine(state + " " + ChatColor.translateAlternateColorCodes('&', TeamManager.team2.getColor() + wool.name));
+	        	}
+	        }
+	        for (Player player : Bukkit.getOnlinePlayers()) {
+	        	player.setScoreboard(board.getScoreboard());
+	        }
+		}
+		
 	}
 	
 }

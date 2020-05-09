@@ -3,10 +3,12 @@ package me.icycode.orbit.match;
 import java.util.ArrayList;
 
 import me.icycode.orbit.Main;
+import me.icycode.orbit.match.gamemodes.CTW;
 import me.icycode.orbit.match.gamemodes.DTM;
 import me.icycode.orbit.module.Monument;
 import me.icycode.orbit.module.Region;
 import me.icycode.orbit.module.Spawn;
+import me.icycode.orbit.module.WoolCap;
 
 import org.bukkit.Bukkit;
 import org.bukkit.DyeColor;
@@ -511,6 +513,7 @@ public class RotationManager {
 			Region redSpawn = new Region(currentMap, 2, 102, -93, 34, 83, -80);
 			MapInfo.protectedZones.add(redSpawn);
 			
+			
 			TeamManager.team2.setName("Blue");
 			TeamManager.team2.setColor("&9");
 			Spawn team2Spawn = new Spawn(MapInfo.world, 18.5, 94, 100.5, -180, 0);
@@ -545,6 +548,113 @@ public class RotationManager {
 			MapInfo.team1Spawns.add(spawn2);
 			MapInfo.team1Spawns.add(spawn3);
 			MapInfo.team1Spawns.add(spawn4);
+		} else if (currentMap == "Rendezvous") {
+			MapInfo.mapName = "Rendezvous";
+			MapInfo.gameMode = "DTM";
+			MapInfo.creators = "ParaPenguin";
+			MapInfo.version = "1.0";
+			MapInfo.worldName = "rendezvous";
+			MapInfo.teams = 2;
+			
+			Spawn spectatorSpawn = new Spawn(MapInfo.world, 12, 54, -897, 0, 0);
+			MapInfo.setSpectatorSpawn(spectatorSpawn);
+			
+			TeamManager.team1.setName("Red");
+			TeamManager.team1.setColor("&4");
+			Spawn team1Spawn1 = new Spawn(MapInfo.world, 63.5, 27, -798.5, -180, 0);
+			MapInfo.team1Spawns.add(team1Spawn1);
+			Spawn team1Spawn2 = new Spawn(MapInfo.world, 63.5, 27, -796.5, 0, 0);
+			MapInfo.team1Spawns.add(team1Spawn2);
+			Monument team1Left = new Monument(new Location(MapInfo.world, -84, 37, -763), TeamManager.team1, "Left");
+			DTM.monuments.add(team1Left);
+			Monument team1Right = new Monument(new Location(MapInfo.world, -84, 37, -833), TeamManager.team1, "Right");
+			DTM.monuments.add(team1Right);
+			Region redSpawn = new Region(currentMap, 61, 26, -788, 65, 31, -808);
+			MapInfo.protectedZones.add(redSpawn);
+			
+			TeamManager.team2.setName("Blue");
+			TeamManager.team2.setColor("&9");
+			Spawn team2Spawn1 = new Spawn(MapInfo.world, -38.5, 27, -798.5, -180, 0);
+			MapInfo.team2Spawns.add(team2Spawn1);
+			Spawn team2Spawn2 = new Spawn(MapInfo.world, -38.5, 27, -796.5, 0, 0);
+			MapInfo.team2Spawns.add(team2Spawn2);
+			Monument team2Left = new Monument(new Location(MapInfo.world, 108, 37, -833), TeamManager.team2, "Left");
+			DTM.monuments.add(team2Left);
+			Monument team2Right = new Monument(new Location(MapInfo.world, 108, 37, -763), TeamManager.team2, "Right");
+			DTM.monuments.add(team2Right);
+			Region blueSpawn = new Region(currentMap, -41, 26, -808, -37, 31, -788);
+			MapInfo.protectedZones.add(blueSpawn);
+			
+			DTM.objectives = 2;
+		} else if (currentMap == "Forgotten Mine") {
+			MapInfo.mapName = "Forgotten Mine";
+			MapInfo.gameMode = "FFA";
+			MapInfo.creators = "ReverseGamma, ImOriginal1, IcyCode";
+			MapInfo.version = "1.0";
+			MapInfo.worldName = "ForgottenMine";
+			MapInfo.teams = 1;
+			
+			Spawn spectatorSpawn = new Spawn(MapInfo.world, -24.5, 69, 5, -90, 0);
+			MapInfo.setSpectatorSpawn(spectatorSpawn);
+			
+			TeamManager.team1.setName("Players");
+			TeamManager.team1.setColor("&6");
+			//Spawn spawn1 = new Spawn(MapInfo.world, -42.5, 69, 19, -180, 0);
+			Spawn spawn2 = new Spawn(MapInfo.world, -17.5, 69,5, -90, 0);
+			Spawn spawn3 = new Spawn(MapInfo.world, 5.5, 69, 4.5, 0, 0);
+			//Spawn spawn4 = new Spawn(MapInfo.world, -2, 69, -51, 90, 0);
+			Spawn spawn5 = new Spawn(MapInfo.world, 6, 69, -6, 0, 0);
+			Spawn spawn6 = new Spawn(MapInfo.world, 31.5, 69, 4.5, 90, 0);
+			Spawn spawn7 = new Spawn(MapInfo.world, 23.5, 69, 33.5, 145, 0);
+			Spawn spawn8 = new Spawn(MapInfo.world, 5.5, 69, 19.5, 0, 0);
+			
+			
+			//MapInfo.team1Spawns.add(spawn1);
+			MapInfo.team1Spawns.add(spawn2);
+			MapInfo.team1Spawns.add(spawn3);
+			//MapInfo.team1Spawns.add(spawn4);
+			MapInfo.team1Spawns.add(spawn5);
+			MapInfo.team1Spawns.add(spawn6);
+			MapInfo.team1Spawns.add(spawn7);
+			MapInfo.team1Spawns.add(spawn8);
+		} else if (currentMap == "Rendezvous Meadows") {
+			MapInfo.mapName = "Rendezvous Meadows";
+			MapInfo.gameMode = "CTW";
+			MapInfo.creators = "Haribo98 & Crimson_Aught";
+			MapInfo.version = "1.0";
+			MapInfo.worldName = "rendezvous4";
+			MapInfo.teams = 2;
+			
+			Spawn spectatorSpawn = new Spawn(MapInfo.world, -58.5, 70, -771.5, -90, 0);
+			MapInfo.setSpectatorSpawn(spectatorSpawn);
+			
+			TeamManager.team1.setName("Blue");
+			TeamManager.team1.setColor("&9");
+			Spawn team1Spawn = new Spawn(MapInfo.world, 23.5, 51, -887.5, 0, 0);
+			MapInfo.team1Spawns.add(team1Spawn);
+			Region lBlueRoom = new Region(MapInfo.world, 63, 51, -650, 78, 62, -636);
+			WoolCap team1Wool1 = new WoolCap(new Location(MapInfo.world, 21, 45, -884), TeamManager.team1, "Light Blue", DyeColor.LIGHT_BLUE, lBlueRoom);
+			CTW.wools.add(team1Wool1);
+			Region limeRoom = new Region(MapInfo.world, -17, 51, -652, -35, 62, -636);
+			WoolCap team1Wool2 = new WoolCap(new Location(MapInfo.world, 25, 45, -884), TeamManager.team1, "Lime", DyeColor.LIME, limeRoom);
+			CTW.wools.add(team1Wool2);
+			//Region team1SpawnProt = new Region(currentMap, 19, 72, -866, 9, 85, -877);
+			//MapInfo.protectedZones.add(team1SpawnProt);
+			
+			TeamManager.team2.setName("Red");
+			TeamManager.team2.setColor("&4");
+			Spawn team2Spawn = new Spawn(MapInfo.world, 23.5, 51, -657.5, -180, 0);
+			MapInfo.team2Spawns.add(team2Spawn);
+			Region pinkRoom = new Region(MapInfo.world, -26, 51, -895, -17, 62, -911);
+			WoolCap team2Wool1 = new WoolCap(new Location(MapInfo.world, 25, 45, -662), TeamManager.team2, "Pink", DyeColor.PINK, pinkRoom);
+			CTW.wools.add(team2Wool1);
+			Region orangeRoom = new Region(MapInfo.world, 64, 50, -894, 74, 62, -909);
+			WoolCap team2Wool2 = new WoolCap(new Location(MapInfo.world, 21, 45, -664), TeamManager.team2, "Orange", DyeColor.ORANGE, orangeRoom);
+			CTW.wools.add(team2Wool2);
+			//Region redSpawn = new Region(currentMap, 8, 72, -768, 19, 85, -757);
+			//MapInfo.protectedZones.add(redSpawn);
+			
+			CTW.objectives = 2;
 		}
 		
 		
