@@ -67,8 +67,9 @@ public class BlockPlace implements Listener{
 						event.getPlayer().getWorld().playSound(event.getPlayer().getLocation(), Sound.LEVEL_UP, 1, 1);
 						gamePlayer.addXp(20);
 						CTW.wools.set(i, wc);
+						CTW.gameEndCheck();
 					}
-					DTM.gameEndCheck();
+					
 				}
 			}
 		}

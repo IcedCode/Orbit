@@ -27,6 +27,7 @@ import me.icycode.orbit.match.Loadout;
 import me.icycode.orbit.match.MapInfo;
 import me.icycode.orbit.match.RotationManager;
 import me.icycode.orbit.match.TeamManager;
+import me.icycode.orbit.match.gamemodes.CTH;
 import me.icycode.orbit.match.gamemodes.RedAlert;
 import me.icycode.orbit.sql.mysql.MySQL;
 import me.icycode.orbit.utils.SoundUtils;
@@ -120,6 +121,8 @@ public class Main extends JavaPlugin {
 		//RotationManager.rotation = (ArrayList<String>) getConfig().getStringList("rotation");
 		
 		RotationManager.addMap("Tumbleweed");
+		RotationManager.addMap("Deepwind Jungle");
+		RotationManager.addMap("Silva");
 		RotationManager.addMap("Rendezvous Meadows");
 		RotationManager.addMap("Forgotten Mine");
 		RotationManager.addMap("Rendezvous");
@@ -181,6 +184,11 @@ public class Main extends JavaPlugin {
 						gameCountdown -= 1;
 						gameTime -= 1;
 						announceTime -= 1;
+						if (MapInfo.gameMode.equalsIgnoreCase("CTH") && GameState.IN_GAME) {
+							CTH.countDown();
+							CTH.countDownInterval--;
+						}
+						
 						
 						if (MapInfo.gameMode.equalsIgnoreCase("Red Alert") && GameState.IN_GAME) {
 							for (Block block : RedAlert.red) {
@@ -324,7 +332,6 @@ public class Main extends JavaPlugin {
 			player.sendMessage(ChatColor.DARK_AQUA + "---===[ " + ChatColor.AQUA + ChatColor.BOLD + MapInfo.mapName + ChatColor.DARK_AQUA + " ]===---");
 			player.sendMessage(ChatColor.DARK_AQUA + "Gamemode: " + ChatColor.AQUA + MapInfo.gameMode + " - " + GameInfo.getGameInfo());
 			player.sendMessage(ChatColor.DARK_AQUA + "Creators: " + ChatColor.AQUA + MapInfo.creators);
-			Tab.update(player);
 		}
 		
 		//LEAVE

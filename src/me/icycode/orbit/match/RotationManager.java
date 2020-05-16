@@ -2,6 +2,10 @@ package me.icycode.orbit.match;
 
 import java.util.ArrayList;
 
+import org.bukkit.Bukkit;
+import org.bukkit.DyeColor;
+import org.bukkit.Location;
+
 import me.icycode.orbit.Main;
 import me.icycode.orbit.match.gamemodes.CTW;
 import me.icycode.orbit.match.gamemodes.DTM;
@@ -9,12 +13,6 @@ import me.icycode.orbit.module.Monument;
 import me.icycode.orbit.module.Region;
 import me.icycode.orbit.module.Spawn;
 import me.icycode.orbit.module.WoolCap;
-
-import org.bukkit.Bukkit;
-import org.bukkit.DyeColor;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.inventory.ItemStack;
 
 public class RotationManager {
 	
@@ -649,7 +647,79 @@ public class RotationManager {
 			WoolCap team2Wool1 = new WoolCap(new Location(MapInfo.world, 25, 45, -662), TeamManager.team2, "Pink", DyeColor.PINK, pinkRoom);
 			CTW.wools.add(team2Wool1);
 			Region orangeRoom = new Region(MapInfo.world, 64, 50, -894, 74, 62, -909);
-			WoolCap team2Wool2 = new WoolCap(new Location(MapInfo.world, 21, 45, -664), TeamManager.team2, "Orange", DyeColor.ORANGE, orangeRoom);
+			WoolCap team2Wool2 = new WoolCap(new Location(MapInfo.world, 21, 45, -662), TeamManager.team2, "Orange", DyeColor.ORANGE, orangeRoom);
+			CTW.wools.add(team2Wool2);
+			//Region redSpawn = new Region(currentMap, 8, 72, -768, 19, 85, -757);
+			//MapInfo.protectedZones.add(redSpawn);
+			
+			CTW.objectives = 2;
+		} else if (currentMap == "Silva") {
+			MapInfo.mapName = "Silva";
+			MapInfo.gameMode = "DTM";
+			MapInfo.creators = "IcyCode, PeachyYas, Kammy878 & Rot43";
+			MapInfo.version = "1.0";
+			MapInfo.worldName = "Silva";
+			MapInfo.teams = 2;
+			
+			Spawn spectatorSpawn = new Spawn(MapInfo.world, -64.5, 175, 44.5, 180, 0);
+			MapInfo.setSpectatorSpawn(spectatorSpawn);
+			
+			TeamManager.team1.setName("Red");
+			TeamManager.team1.setColor("&4");
+			Spawn team1Spawn = new Spawn(MapInfo.world, -9.5, 113, 213.5, 180, 0);
+			MapInfo.team1Spawns.add(team1Spawn);
+			Monument team1Left = new Monument(new Location(MapInfo.world, -34, 118, 15), TeamManager.team1, "Left");
+			DTM.monuments.add(team1Left);
+			Monument team1Right = new Monument(new Location(MapInfo.world, 14, 118, 15), TeamManager.team1, "Right");
+			DTM.monuments.add(team1Right);
+			Region redSpawn = new Region(currentMap, -17, 106, 205, -1, 122, 222);
+			MapInfo.protectedZones.add(redSpawn);
+			
+			TeamManager.team2.setName("Green");
+			TeamManager.team2.setColor("&2");
+			Spawn team2Spawn = new Spawn(MapInfo.world, -9.5, 113, -0.5, 0, 0);
+			MapInfo.team2Spawns.add(team2Spawn);
+			Monument team2Left = new Monument(new Location(MapInfo.world, 14, 118, 197), TeamManager.team2, "Left");
+			DTM.monuments.add(team2Left);
+			Monument team2Right = new Monument(new Location(MapInfo.world, -34, 118, 197), TeamManager.team2, "Right");
+			DTM.monuments.add(team2Right);
+			Region greenSpawn = new Region(currentMap, -2, 106, 7, -19, 122, -10);
+			MapInfo.protectedZones.add(greenSpawn);
+			
+			DTM.objectives = 2;
+		} else if (currentMap == "Deepwind Jungle") {
+			MapInfo.mapName = "Deepwind Jungle";
+			MapInfo.gameMode = "CTW";
+			MapInfo.creators = "PandaBattalion & Rokosnoco";
+			MapInfo.version = "1.2.3";
+			MapInfo.worldName = "deepwind_jungle";
+			MapInfo.teams = 2;
+			
+			Spawn spectatorSpawn = new Spawn(MapInfo.world, -50, 59, 0, 90, 0);
+			MapInfo.setSpectatorSpawn(spectatorSpawn);
+			
+			TeamManager.team1.setName("Blue");
+			TeamManager.team1.setColor("&9");
+			Spawn team1Spawn = new Spawn(MapInfo.world, 0, 9, -75, 0, 0);
+			MapInfo.team1Spawns.add(team1Spawn);
+			Region greenRoom = new Region(MapInfo.world, 17, 0, 66,37,256,79);
+			WoolCap team1Wool1 = new WoolCap(new Location(MapInfo.world, 1,10,-81), TeamManager.team1, "Green", DyeColor.GREEN, greenRoom);
+			CTW.wools.add(team1Wool1);
+			Region cyanRoom = new Region(MapInfo.world, -17,0,66,-37,256,79);
+			WoolCap team1Wool2 = new WoolCap(new Location(MapInfo.world, -2,10,-81), TeamManager.team1, "Cyan", DyeColor.CYAN, cyanRoom);
+			CTW.wools.add(team1Wool2);
+			//Region team1SpawnProt = new Region(currentMap, 19, 72, -866, 9, 85, -877);
+			//MapInfo.protectedZones.add(team1SpawnProt);
+			
+			TeamManager.team2.setName("Red");
+			TeamManager.team2.setColor("&4");
+			Spawn team2Spawn = new Spawn(MapInfo.world, 0, 9, 75, 180, 0);
+			MapInfo.team2Spawns.add(team2Spawn);
+			Region purpleRoom = new Region(MapInfo.world, -17,0,-65,-37,256,-78);
+			WoolCap team2Wool1 = new WoolCap(new Location(MapInfo.world, -2,10,81), TeamManager.team2, "Purple", DyeColor.PURPLE, purpleRoom);
+			CTW.wools.add(team2Wool1);
+			Region yellowRoom = new Region(MapInfo.world, 17,0,-65,37,256,-78);
+			WoolCap team2Wool2 = new WoolCap(new Location(MapInfo.world, 1,10,81), TeamManager.team2, "Yellow", DyeColor.YELLOW, yellowRoom);
 			CTW.wools.add(team2Wool2);
 			//Region redSpawn = new Region(currentMap, 8, 72, -768, 19, 85, -757);
 			//MapInfo.protectedZones.add(redSpawn);

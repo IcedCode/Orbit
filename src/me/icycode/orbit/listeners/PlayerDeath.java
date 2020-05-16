@@ -11,11 +11,13 @@ import me.icycode.orbit.utils.chat.Chatter;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.inventory.ItemStack;
 
 public class PlayerDeath implements Listener{
 	
@@ -27,7 +29,11 @@ public class PlayerDeath implements Listener{
 		
 		Player player = e.getEntity();
 		
-		e.getDrops().clear();
+		for (ItemStack i : e.getDrops()) {
+			if(i.getType() != Material.GOLDEN_APPLE) {
+				e.getDrops().remove(i);
+			}
+		}
 		if (MapInfo.gameMode.equalsIgnoreCase("CTF")) {
 			if (CTF.team1FlagHolder == player) {
 				CTF.team1FlagHolder = null;

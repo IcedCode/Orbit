@@ -133,5 +133,10 @@ public class Scoreboard {
 		}
 		
 	}
+
+	public static void CTHUpdate() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

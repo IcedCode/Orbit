@@ -9,7 +9,7 @@ commands:
    join:
      usage: /<command>
      description: Join a game
-     aliases: [player, p]
+     aliases: [play, p]
    leave:
      usage: /<command>
      description: Leave a game

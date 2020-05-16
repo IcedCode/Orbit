@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import org.bukkit.World;
 
+import me.icycode.orbit.match.gamemodes.CTH;
 import me.icycode.orbit.match.gamemodes.CTW;
 import me.icycode.orbit.match.gamemodes.DTM;
 import me.icycode.orbit.module.Region;
@@ -33,8 +34,6 @@ public class MapInfo {
 	
 	public static ArrayList<Region> protectedZones = new ArrayList<Region>();
 
-	//CTH ONLY
-	public static Region hill;
 	
 	//CTF ONLY
 	public static Region team1Flag;
@@ -61,7 +60,7 @@ public class MapInfo {
 		
 		protectedZones.clear();
 		
-		hill = null;
+		CTH.hill = null;
 		
 		team1Flag = null;
 		team2Flag = null;
@@ -97,16 +96,6 @@ public class MapInfo {
 		MapInfo.spectatorSpawn = spectatorSpawn;
 	}
 
-
-	public static Region getHill() {
-		return hill;
-	}
-
-
-
-	public static void setHill(Region hill) {
-		MapInfo.hill = hill;
-	}
 
 
 

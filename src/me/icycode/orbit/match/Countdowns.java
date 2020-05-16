@@ -46,12 +46,12 @@ public class Countdowns {
 	public static void gameCountdown(int Time) {
 		if (Time < 6 && Time > 1) {
 			for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-				TitleAPI.sendTitle(player, 5, 12, 3, "" + ChatColor.GREEN + Time + " seconds left", "" + ChatColor.RED + ChatColor.BOLD + ChatColor.UNDERLINE + GameInfo.getGameTitle());
+				TitleAPI.sendTitle(player, 5, 12, 3, "" + ChatColor.GREEN + "Starting in "+ Time, "" + ChatColor.RED + ChatColor.BOLD + ChatColor.UNDERLINE + GameInfo.getGameTitle());
 			}
 			SoundUtils.broadcastSound(Sound.NOTE_PIANO);
 		} else if (Time == 1) {
 			for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-				TitleAPI.sendTitle(player, 5, 12, 3, "" + ChatColor.GREEN + Time + " second left", "" + ChatColor.RED + ChatColor.BOLD + ChatColor.UNDERLINE + GameInfo.getGameTitle());
+				TitleAPI.sendTitle(player, 5, 12, 3, "" + ChatColor.GREEN + "Starting in " + Time, "" + ChatColor.RED + ChatColor.BOLD + ChatColor.UNDERLINE + GameInfo.getGameTitle());
 				
 			}
 			SoundUtils.broadcastSound(Sound.NOTE_BASS);
