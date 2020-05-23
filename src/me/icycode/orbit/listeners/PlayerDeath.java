@@ -1,14 +1,5 @@
 package me.icycode.orbit.listeners;
 
-import me.icycode.orbit.GamePlayer;
-import me.icycode.orbit.Main;
-import me.icycode.orbit.match.MapInfo;
-import me.icycode.orbit.match.TeamManager;
-import me.icycode.orbit.match.gamemodes.CTF;
-import me.icycode.orbit.utils.Scoreboard;
-import me.icycode.orbit.utils.SoundUtils;
-import me.icycode.orbit.utils.chat.Chatter;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -19,6 +10,15 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.ItemStack;
 
+import me.icycode.orbit.GamePlayer;
+import me.icycode.orbit.Main;
+import me.icycode.orbit.match.MapInfo;
+import me.icycode.orbit.match.TeamManager;
+import me.icycode.orbit.match.gamemodes.CTF;
+import me.icycode.orbit.utils.Scoreboard;
+import me.icycode.orbit.utils.SoundUtils;
+import me.icycode.orbit.utils.chat.Chatter;
+
 public class PlayerDeath implements Listener{
 	
 	
@@ -28,12 +28,8 @@ public class PlayerDeath implements Listener{
 		
 		
 		Player player = e.getEntity();
-		
-		for (ItemStack i : e.getDrops()) {
-			if(i.getType() != Material.GOLDEN_APPLE) {
-				e.getDrops().remove(i);
-			}
-		}
+		e.getDrops().clear();
+		player.getInventory().clear();
 		if (MapInfo.gameMode.equalsIgnoreCase("CTF")) {
 			if (CTF.team1FlagHolder == player) {
 				CTF.team1FlagHolder = null;
@@ -75,7 +71,8 @@ public class PlayerDeath implements Listener{
 			}
 			Scoreboard.TDMUpdate();
 			
-			
+			ItemStack gapple = new ItemStack(Material.GOLDEN_APPLE, 1);
+			killer.getInventory().addItem(gapple);
 			
 		} else if(e.getDeathMessage().contains("hit the ground too hard") || e.getDeathMessage().contains("fell from a")) {
 			

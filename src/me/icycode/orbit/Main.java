@@ -6,6 +6,28 @@ import java.sql.Connection;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
+import org.bukkit.Server;
+import org.bukkit.Sound;
+import org.bukkit.WorldCreator;
+import org.bukkit.block.Block;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import com.connorlinfoot.titleapi.TitleAPI;
+import com.google.common.io.ByteArrayDataOutput;
+import com.google.common.io.ByteStreams;
+import com.keenant.tabbed.Tabbed;
+import com.sk89q.worldedit.bukkit.WorldEditPlugin;
+
 import me.icycode.orbit.listeners.BlockBreak;
 import me.icycode.orbit.listeners.BlockPlace;
 import me.icycode.orbit.listeners.ChatManager;
@@ -31,31 +53,8 @@ import me.icycode.orbit.match.gamemodes.CTH;
 import me.icycode.orbit.match.gamemodes.RedAlert;
 import me.icycode.orbit.sql.mysql.MySQL;
 import me.icycode.orbit.utils.SoundUtils;
-import me.icycode.orbit.utils.Tab;
 import me.icycode.orbit.utils.chat.Announcement;
 import me.icycode.orbit.utils.chat.Chatter;
-
-import org.apache.commons.io.FileUtils;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.GameMode;
-import org.bukkit.Server;
-import org.bukkit.Sound;
-import org.bukkit.WorldCreator;
-import org.bukkit.block.Block;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.PluginManager;
-import org.bukkit.plugin.java.JavaPlugin;
-
-import com.connorlinfoot.titleapi.TitleAPI;
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
-import com.keenant.tabbed.Tabbed;
-import com.sk89q.worldedit.bukkit.WorldEditPlugin;
 
 public class Main extends JavaPlugin {
 
@@ -123,17 +122,19 @@ public class Main extends JavaPlugin {
 		RotationManager.addMap("Tumbleweed");
 		RotationManager.addMap("Deepwind Jungle");
 		RotationManager.addMap("Silva");
-		RotationManager.addMap("Rendezvous Meadows");
 		RotationManager.addMap("Forgotten Mine");
-		RotationManager.addMap("Rendezvous");
+		RotationManager.addMap("Rendezvous Meadows");
 		RotationManager.addMap("Tumbleweed");
 		RotationManager.addMap("BerrylandMC");
 		RotationManager.addMap("Arbaro");
 		RotationManager.addMap("Kingdom");
 		RotationManager.addMap("Quintlet");
+		RotationManager.addMap("Rendezvous");
+		RotationManager.addMap("Forgotten Mine");
 		RotationManager.addMap("Halcyon");
-		RotationManager.addMap("Island Hopper");
+		RotationManager.addMap("Deepwind Jungle");
 		RotationManager.addMap("Senex 1");
+		RotationManager.addMap("Island Hopper");
 		RotationManager.addMap("Tumbleweed");
 		RotationManager.addMap("Quintlet");
 		RotationManager.addMap("Triax");
