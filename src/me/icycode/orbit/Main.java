@@ -135,9 +135,6 @@ public class Main extends JavaPlugin {
 		RotationManager.addMap("Triax");
 		RotationManager.addMap("Tumbleweed");
 		
-		
-		Tabbed tabbed = new Tabbed(this);
-		
 		RotationManager.setNextMap();
 		
 		

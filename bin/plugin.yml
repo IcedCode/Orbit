@@ -2,6 +2,7 @@ name: Orbit
 version: 0.1
 main: me.icycode.orbit.Main
 description: A PVP Game Manager by IcyCode
+depend: [LuckPerms]
 commands:
    start:
      usage: /<command>
