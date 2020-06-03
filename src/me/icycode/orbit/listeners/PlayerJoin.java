@@ -14,8 +14,8 @@ import me.icycode.orbit.match.GameState;
 import me.icycode.orbit.match.MapInfo;
 import me.icycode.orbit.match.TeamManager;
 import me.icycode.orbit.utils.Scoreboard;
+import me.icycode.orbit.utils.chat.Chatter;
 import me.icycode.orbit.utils.player.Inventory;
-import ru.tehkode.permissions.bukkit.PermissionsEx;
 
 public class PlayerJoin implements Listener {
 
@@ -27,7 +27,7 @@ public class PlayerJoin implements Listener {
 		Main.onlinePlayers.put(player, new GamePlayer(player));
 		Scoreboard.LobbyUpdate();
 		
-		e.setJoinMessage(ChatColor.DARK_GRAY + "(" + ChatColor.DARK_GREEN + ChatColor.ITALIC + "+" + ChatColor.DARK_GRAY + ") " + ChatColor.translateAlternateColorCodes('&', PermissionsEx.getUser(player).getPrefix()) + " " + ChatColor.AQUA + player.getDisplayName());
+		e.setJoinMessage(ChatColor.DARK_GRAY + "(" + ChatColor.DARK_GREEN + ChatColor.ITALIC + "+" + ChatColor.DARK_GRAY + ") " + ChatColor.translateAlternateColorCodes('&', Chatter.getPrefix(player) + " " + ChatColor.AQUA + player.getDisplayName()));
 		
 		Inventory.clear(player);
 		

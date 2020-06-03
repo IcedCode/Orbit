@@ -20,6 +20,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.connorlinfoot.titleapi.TitleAPI;
@@ -55,6 +56,7 @@ import me.icycode.orbit.sql.mysql.MySQL;
 import me.icycode.orbit.utils.SoundUtils;
 import me.icycode.orbit.utils.chat.Announcement;
 import me.icycode.orbit.utils.chat.Chatter;
+import net.luckperms.api.LuckPerms;
 
 public class Main extends JavaPlugin {
 
@@ -120,13 +122,6 @@ public class Main extends JavaPlugin {
 		//RotationManager.rotation = (ArrayList<String>) getConfig().getStringList("rotation");
 		
 		RotationManager.addMap("Tumbleweed");
-		RotationManager.addMap("Deepwind Jungle");
-		RotationManager.addMap("Silva");
-		RotationManager.addMap("Forgotten Mine");
-		RotationManager.addMap("Rendezvous Meadows");
-		RotationManager.addMap("Tumbleweed");
-		RotationManager.addMap("BerrylandMC");
-		RotationManager.addMap("Arbaro");
 		RotationManager.addMap("Kingdom");
 		RotationManager.addMap("Quintlet");
 		RotationManager.addMap("Rendezvous");
@@ -144,6 +139,13 @@ public class Main extends JavaPlugin {
 		Tabbed tabbed = new Tabbed(this);
 		
 		RotationManager.setNextMap();
+		
+		
+		//Getting Luckperms API
+		RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
+		if (provider != null) {
+		    LuckPerms api = provider.getProvider();
+		}
 		
 		//World Downloader Preventer
 		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "WDL|CONTROL");

@@ -1,17 +1,15 @@
 package me.icycode.orbit.listeners;
 
-import me.icycode.orbit.GamePlayer;
-import me.icycode.orbit.Main;
-import me.icycode.orbit.match.TeamManager;
-import me.icycode.orbit.utils.chat.Chatter;
-
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-import ru.tehkode.permissions.bukkit.PermissionsEx;
+import me.icycode.orbit.GamePlayer;
+import me.icycode.orbit.Main;
+import me.icycode.orbit.match.TeamManager;
+import me.icycode.orbit.utils.chat.Chatter;
 
 public class ChatManager implements Listener{
 	
@@ -55,7 +53,7 @@ public class ChatManager implements Listener{
 			suffix = "";
 			break;
 		}
-		String chatFormat = ChatColor.translateAlternateColorCodes('&', ChatColor.DARK_AQUA + Integer.toString(Main.onlinePlayers.get(p).getXpLevel()) + " " + PermissionsEx.getUser(p).getPrefix() + ChatColor.DARK_GRAY + " | " +  chatColor + "" + p.getDisplayName() + suffix + " " + ChatColor.DARK_GRAY + Chatter.RightArrow() + " " + ChatColor.WHITE + event.getMessage());
+		String chatFormat = ChatColor.translateAlternateColorCodes('&', ChatColor.DARK_AQUA + Integer.toString(Main.onlinePlayers.get(p).getXpLevel()) + " " + Chatter.getPrefix(p) + ChatColor.DARK_GRAY + " | " +  chatColor + "" + p.getDisplayName() + suffix + " " + ChatColor.DARK_GRAY + Chatter.RightArrow() + " " + ChatColor.WHITE + event.getMessage());
 		event.setFormat(chatFormat);
 	}
 
